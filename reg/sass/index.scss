@@ -1,0 +1,142 @@
+@import "./reset.css";
+@mixin bg($bg){
+	background:$bg;
+}
+@mixin floa($dir){
+	float:$dir;
+}
+@mixin com_border($num){
+	border-radius:$num;
+	-webkit-border-radius:$num;
+	-moz-border-radius:$num;
+	-o-border-radius:$num;
+}
+
+html,body{
+	@include bg(rgb(253,251,251));
+	height: 100%;
+	width: 100%;
+}
+.bg{
+	@include bg(url(../img/bg.jpg) no-repeat center);
+	width: 1000px;
+	min-height: 1000px;
+	margin: 10px auto;
+	padding: 40px;
+	position: relative;
+}
+/**header**/
+.header{
+	margin-top: 0px;
+	height: 73px;
+	margin-bottom: 44px;
+}
+.logo{
+	@include bg(url(../img/Login_sprite.png) left top);
+	display: inline-block;
+	width: 315px;
+	height: 100%;
+}
+.header_right{
+	@include floa(right);
+	@include bg(url(../img/sprite.png) no-repeat -315px 0px);
+	height: 30px;
+	width: 450px;
+	margin-top: 27px;
+}
+/***reg_box***/
+.reg_box{
+	@include floa(right);
+	margin-right: 20px;
+	width: 346px;
+	height: 396px;
+	margin-top: 150px;
+}
+.reg_box li{
+	margin-bottom: 25px;
+}
+.reg_wel{
+	font-size: 15px;
+}
+.login{
+	@include floa(right);
+	margin-right: 80px;
+}
+.login a{
+	color: red;
+}
+.reg_form li input{
+	height: 18px;
+	line-height: 18px;
+	padding: 6px 10px;
+	border-radius: 3px;
+	border: 1px solid #999;
+
+}
+.reg_text{
+	width: 248px;
+}
+.id_code{
+	height:18px;
+	width:118px;
+	padding:6px 10px;
+}
+.code_btn{
+	@include com_border(3px);
+	height:30px;
+	width:90px;
+	line-height:30px;
+	padding:0 12px;
+	margin-left:13px;
+	background:#d0d0d0;
+	font-size:14px;
+	text-align:center;
+	color:#333;
+	cursor: pointer;
+	border:none;
+}
+.reg_end{
+	position:relative;
+	margin-bottom:35px;
+}
+.reg_btn{
+	@include com_border(3px);
+	height:40px;
+	line-height:40px;
+	width:140px;
+	text-align:center;
+	background:#f10180;
+	color:#fff;
+	border:none;
+}
+.reg_by_email{
+	position:absolute;
+	display:inline-block;
+	height:12px;
+	width:100px;
+	font-size:12px;
+	text-align:left;
+	// margin:38px 0px 0px 20px;
+	vertical-align: baseline;
+	color:#1d94d1;
+	bottom:5px;
+	left:160px;
+}
+.agree{
+	line-height:100%;
+	font-size:14px;
+}
+.reg_agree{
+	height:100%;
+	width:16px;
+}
+.VIP_ser{
+	color:red;
+}
+.footer{
+	position:absolute;
+	width:100%;
+	text-align:center;
+	bottom:200px;
+
+}

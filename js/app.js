@@ -1,18 +1,19 @@
 require.config({
-	baseUrl:"../js",
+	// baseUrl:"../js",
 	shim:{
-		'login':['jquery'],
+		'reg':['jquery'],
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
-		'login':'login'
+		'reg':'reg',
+		'template':'template'
 	}
 })
-require(['jquery','login'],function($,login){
+require(['jquery','reg'],function($,reg){
 	var path = location.pathname;
 	console.log(path)
-	if(path == "/yhy_pro/login/"){
-		login.init();
+	if(path == "/VIP/reg/"){
+		reg.init();
 	}else{
 
 	}

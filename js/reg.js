@@ -2,7 +2,7 @@ define(['jquery'],function($){
 
 	return {
 		init:function(){
-			$('#reg').load('../html/login/login.html',function(){
+			$('#reg').load('../html/reg/reg.html',function(){
 
 			})
 		}
