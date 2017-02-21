@@ -1,12 +1,13 @@
 require.config({
 	// baseUrl:"../js",
 	shim:{
-		'reg':['jquery'],
+		'reg':['jquery','cookiebase'],
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
 		'reg':'reg',
-		'template':'template'
+		'template':'template',
+		'cookiebase':'cookiebase'
 	}
 })
 require(['jquery','reg'],function($,reg){

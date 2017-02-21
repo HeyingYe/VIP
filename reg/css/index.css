@@ -13,9 +13,9 @@ html, body { background: #fdfbfb; height: 100%; width: 100%; }
 /***reg_box***/
 .reg_box { float: right; margin-right: 20px; width: 346px; height: 396px; margin-top: 150px; }
 
-.reg_box li { margin-bottom: 25px; }
+.reg_box li { margin-bottom: 25px; position: relative; max-height: 40px; }
 
-.reg_wel { font-size: 15px; }
+.reg_wel { font-size: 14px; }
 
 .login { float: right; margin-right: 80px; }
 
@@ -42,3 +42,10 @@ html, body { background: #fdfbfb; height: 100%; width: 100%; }
 .VIP_ser { color: red; }
 
 .footer { position: absolute; width: 100%; text-align: center; bottom: 200px; }
+
+/*****error**/
+.error_pos { background: #fffaf3; border: 1px solid #f8dbb1; position: absolute; top: -45px; left: 0px; height: 18px; padding: 6px 20px; max-width: 800px; border: 1px solid #dbdada; border-radius: 2px; font-size: 16px; opacity: 0; }
+
+.level { height: 16px; opacity: 0; }
+
+.rank { display: inline-block; height: 10px; width: 30px; margin-right: 5px; background: #a3a3a3; }

@@ -54,9 +54,11 @@ html,body{
 }
 .reg_box li{
 	margin-bottom: 25px;
+	position:relative;
+	max-height:40px;
 }
 .reg_wel{
-	font-size: 15px;
+	font-size: 14px;
 }
 .login{
 	@include floa(right);
@@ -71,7 +73,6 @@ html,body{
 	padding: 6px 10px;
 	border-radius: 3px;
 	border: 1px solid #999;
-
 }
 .reg_text{
 	width: 248px;
@@ -138,5 +139,30 @@ html,body{
 	width:100%;
 	text-align:center;
 	bottom:200px;
-
+}
+/*****error**/
+.error_pos{
+	@include bg(#fffaf3);
+	border:1px solid #f8dbb1;
+	position:absolute;
+	top:-45px;
+	left:0px;
+	height:18px;
+	padding:6px 20px;
+	max-width: 800px;
+    border: 1px solid #dbdada;
+    border-radius: 2px;
+    font-size:16px;
+    opacity:0;
+}
+.level{
+	height: 16px;
+	opacity:0;
+}
+.rank{
+	display:inline-block;
+	height: 10px;
+	width: 30px;
+	margin-right:5px;
+	background:#a3a3a3;
 }

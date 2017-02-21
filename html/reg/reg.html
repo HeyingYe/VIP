@@ -7,10 +7,29 @@
 	<div class="reg_box">
 		<li class="reg_wel"><span>欢迎注册</span><span class="login">已注册可<a href="" >直接登录</a></span></li>
 		<form action="" class="reg_form" method="post">
-			<li><input type="text" name="phone_Num" class="phone_Num reg_text" placeholder="请输入手机号码"></li>
-			<li><input type="password" name="psw" class="psw reg_text" placeholder="密码由6-20位字母，数字和符号组合"></li>
-			<li><input type="password" name="checked_psw" class="checked_psw reg_text" placeholder="请再次输入上面的密码"></li>
-			<li><input type="text" name="id_code" class="id_code" placeholder="短信验证码"> <input type="text" disabled="disabled" class="code_btn" value="获取验证码"></li>
+			<li>
+				<div class="phone_error error_pos"></div>
+				<input type="text" name="phone_Num" class="phone_Num reg_text" placeholder="请输入手机号码">
+			</li>
+			<li>
+				<div class="psw_error error_pos"></div>
+				<input type="password" name="psw" class="psw reg_text" placeholder="密码由6-20位字母，数字和符号组合">
+				<div class="level">
+					<span class="rank"></span>
+					<span class="rank"></span>
+					<span class="rank"></span>
+					<span class="grade"></span>
+				</div>
+			</li>
+			<li>
+				<div class="ch_psw_error error_pos"></div>
+				<input type="password" name="checked_psw" class="checked_psw reg_text" placeholder="请再次输入上面的密码">
+			</li>
+			<li>
+				<div class="code_error error_pos"></div>
+				<input type="text" name="id_code" class="id_code" placeholder="短信验证码"> 
+				<input type="text" disabled="disabled" class="code_btn" value="获取验证码">
+			</li>
 			
 			<div class="reg_end">
 				<input type="submit" value="立即注册" class="reg_btn">
