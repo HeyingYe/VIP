@@ -1,0 +1,83 @@
+@import url(./reset.css);
+html, body { background: #fdfbfb; height: 100%; width: 100%; }
+
+.bg { background: url(../img/bg.jpg) no-repeat center; width: 1000px; min-height: 1000px; margin: 10px auto; padding: 40px; position: relative; }
+
+/**header**/
+.header { margin-top: 0px; height: 73px; margin-bottom: 44px; }
+
+.logo { background: url(../img/Login_sprite.png) left top; display: inline-block; width: 315px; height: 100%; }
+
+.header_right { float: right; background: url(../img/sprite.png) no-repeat -315px 0px; height: 30px; width: 450px; margin-top: 27px; }
+
+/***login_box***/
+.login_box { float: right; margin-right: 20px; width: 346px; height: 396px; margin-top: 150px; }
+
+.login_box li { margin-bottom: 25px; position: relative; max-height: 40px; }
+
+.login_wel { font-size: 14px; }
+
+.login { float: right; margin-right: 80px; }
+
+.login_form li input { height: 18px; line-height: 18px; padding: 6px 10px; border-radius: 3px; border: 1px solid #999; }
+
+.login_text { width: 248px; }
+
+.code { display: none; height: 36px; }
+
+.check_code, .id_code, .next { float: left; }
+
+.next { display: inline-block; height: 30px; line-height: 30px; font-size: 12px; margin-left: 5px; color: #000; }
+
+.next:hover { color: red; }
+
+.check_code { display: inline-block; border: 1px solid #000; width: 49px; height: 30px; margin-left: 10px; }
+
+.id_code { height: 18px; width: 118px; padding: 6px 10px; }
+
+.code_btn { border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; height: 30px; width: 90px; line-height: 30px; padding: 0 12px; margin-left: 13px; background: #d0d0d0; font-size: 14px; text-align: center; color: #333; cursor: pointer; border: none; }
+
+.login_end { position: relative; margin-bottom: 35px; }
+
+.login_btn { border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; height: 40px; line-height: 40px; width: 140px; text-align: center; background: #f10180; color: #fff; border: none; }
+
+.rem_user { line-height: 100%; font-size: 14px; }
+
+.footer { position: absolute; width: 100%; text-align: center; bottom: 200px; }
+
+/*****error**/
+.error_pos { background: #fffaf3; border: 1px solid #f8dbb1; position: absolute; top: -45px; left: 0px; height: 18px; padding: 6px 20px; max-width: 800px; border: 1px solid #dbdada; border-radius: 2px; font-size: 16px; opacity: 0; z-index: 100; }
+
+.tip { font-size: 14px; height: 19px; line-height: 19px; color: #000; }
+
+.reg { color: red; }
+
+.forget { color: #000; }
+
+.help { float: right; margin-right: 80px; }
+
+.cooperate { font-size: 14px; color: #666; }
+
+.work { margin-top: 10px; }
+
+.com { display: inline-block; height: 24px; line-height: 24px; width: 24px; margin-right: 8px; }
+
+.zhifubao { background: url(../img/sprite.png) -178px -55px; }
+
+.zhifubao:hover { background: url(../img/sprite.png) -150px -55px; }
+
+.weixin { background: url(../img/sprite.png) -206px -55px; }
+
+.weixin:hover { background: url(../img/sprite.png) -318px -55px; }
+
+.qq { background: url(../img/sprite.png) -234px -55px; }
+
+.qq:hover { background: url(../img/sprite.png) -346px -55px; }
+
+.weibo { background: url(../img/sprite.png) -290px -55px; }
+
+.weibo:hover { background: url(../img/sprite.png) -262px -55px; }
+
+.more { font-size: 14px; margin-top: -10px; color: #000; }
+
+.more:hover { color: red; }

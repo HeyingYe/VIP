@@ -23,9 +23,9 @@ var uglify =  require("gulp-uglify") ;//压缩js
 //task 第一个参数 任务名称 
 //第二个参数当前任务要干的事情
 gulp.task("comCss",function(){
-        sass("./reg/sass/index.scss",{
+        sass("./login/sass/index.scss",{
             style:"compact"
-        }).pipe(gulp.dest("./reg/css"))
+        }).pipe(gulp.dest("./login/css"))
 })
 
 //给gulp添加livereload的功能
@@ -56,7 +56,7 @@ gulp.task("watch",function(){
     //[] 要执行的任务
     console.log('watch');
     // gulp.watch("./*.html",["refalseHTML"]);
-    gulp.watch("./reg/sass/index.scss",["comCss"]);
+    gulp.watch("./login/sass/index.scss",["comCss"]);
     // gulp.watch("./js/*.js",["js"]); //不科学
     // gulp.watch("./css/*.css",['css']);  
 })

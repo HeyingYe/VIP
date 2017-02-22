@@ -44,38 +44,61 @@ html,body{
 	width: 450px;
 	margin-top: 27px;
 }
-/***reg_box***/
-.reg_box{
+/***login_box***/
+.login_box{
 	@include floa(right);
 	margin-right: 20px;
 	width: 346px;
 	height: 396px;
 	margin-top: 150px;
 }
-.reg_box li{
+.login_box li{
 	margin-bottom: 25px;
 	position:relative;
 	max-height:40px;
 }
-.reg_wel{
+.login_wel{
 	font-size: 14px;
 }
 .login{
 	@include floa(right);
 	margin-right: 80px;
 }
-.login a{
-	color: red;
-}
-.reg_form li input{
+
+.login_form li input{
 	height: 18px;
 	line-height: 18px;
 	padding: 6px 10px;
 	border-radius: 3px;
 	border: 1px solid #999;
 }
-.reg_text{
+.login_text{
 	width: 248px;
+}
+.code{
+	display:none;
+	height: 36px
+}
+.check_code,.id_code,.next{
+	float:left;
+}
+.next{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	font-size:12px;
+	margin-left:5px;
+	color:#000;
+}
+.next:hover{
+	color:red;
+}
+.check_code{
+	display:inline-block;
+	border:1px solid #000;
+	width:49px;
+	height: 30px;
+	margin-left:10px;
 }
 .id_code{
 	height:18px;
@@ -96,11 +119,11 @@ html,body{
 	cursor: pointer;
 	border:none;
 }
-.reg_end{
+.login_end{
 	position:relative;
 	margin-bottom:35px;
 }
-.reg_btn{
+.login_btn{
 	@include com_border(3px);
 	height:40px;
 	line-height:40px;
@@ -110,29 +133,9 @@ html,body{
 	color:#fff;
 	border:none;
 }
-.reg_by_email{
-	position:absolute;
-	display:inline-block;
-	height:12px;
-	width:100px;
-	font-size:12px;
-	text-align:left;
-	// margin:38px 0px 0px 20px;
-	vertical-align: baseline;
-	color:#1d94d1;
-	bottom:5px;
-	left:160px;
-}
-.agree{
+.rem_user{
 	line-height:100%;
 	font-size:14px;
-}
-.reg_agree{
-	height:100%;
-	width:16px;
-}
-.VIP_ser{
-	color:red;
 }
 .footer{
 	position:absolute;
@@ -156,14 +159,65 @@ html,body{
     opacity:0;
     z-index: 100;
 }
-.level{
-	height: 16px;
-	opacity:0;
+.tip{
+	font-size:14px;
+	height: 19px;
+	line-height:19px;
+	color:#000;
 }
-.rank{
+.reg{
+	color:red;
+}
+.forget{
+	color:#000;
+}
+.help{
+	float:right;
+	margin-right:80px;
+}
+.cooperate{
+	font-size:14px;
+	color:#666;
+}
+.work{
+	margin-top:10px;
+}
+.com{
 	display:inline-block;
-	height: 10px;
-	width: 30px;
-	margin-right:5px;
-	background:#a3a3a3;
+	height: 24px;
+	line-height:24px;
+	width: 24px;
+	margin-right:8px;
+}
+.zhifubao{
+	@include bg(url(../img/sprite.png) -178px -55px)
+}
+.zhifubao:hover{
+	@include bg(url(../img/sprite.png) -150px -55px)
+}
+.weixin{
+	@include bg(url(../img/sprite.png) -206px -55px)
+}
+.weixin:hover{
+	@include bg(url(../img/sprite.png) -318px -55px)
+}
+.qq{
+	@include bg(url(../img/sprite.png) -234px -55px)
+}
+.qq:hover{
+	@include bg(url(../img/sprite.png) -346px -55px)
+}
+.weibo{
+	@include bg(url(../img/sprite.png) -290px -55px)
+}
+.weibo:hover{
+	@include bg(url(../img/sprite.png) -262px -55px)
+}
+.more{
+	font-size:14px;
+	margin-top:-10px;
+	color:#000;
+}
+.more:hover{
+	color:red;
 }

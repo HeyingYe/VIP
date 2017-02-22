@@ -13,7 +13,7 @@ define(['jquery','cookiebase'],function($,cookie){
 							flag = false;
 						}
 					}
-					console.log(flag);
+					//注册信息是否正确
 					if(flag){
 						//存入cookie中
 						self.cookie();
@@ -164,7 +164,7 @@ define(['jquery','cookiebase'],function($,cookie){
 		},
 		cookie:function(){
 			//获取cookie
-			var sCookie	=getCookie("user");
+			var sCookie	= getCookie("user");
 			var aUser = sCookie?JSON.parse(sCookie):[];
 			//[{phone:999,psw:999}]
 			//遍历cookie，判断是否已存在cookie中
@@ -183,9 +183,34 @@ define(['jquery','cookiebase'],function($,cookie){
 		ajax:function(){
 			$.ajax({
 				type:'POST',
-				url:'localhost/VIP/php/reg.php',
+				url:'../php/reg.php',
 				success:function(res){
-					location.assign();
+					//处理返回结果
+					var res = JSON.parse(res);
+					if(res.status == 200){
+						//注册成功
+						console.log('注册成功');
+						// location.assign();
+					}else{
+						//注册失败
+						$('.reg_error').html('手机号码已注册，请更换，或立即登录')
+											.animate({
+												opacity:1,
+												top:15,						
+											})
+						$('.phone_Num').css({
+							'background':'#ffe6e7',
+							'border-color':'#fca1a5',
+						})
+						$('.phone_Num').on('blur',function(){
+							$('.reg_error').animate({
+														opacity:0,
+														top:-45,						
+													})
+							
+						})
+						console.log(res);
+					}
 				},
 				error:function(){
 					console.log(arguments);
