@@ -209,7 +209,7 @@ define(['jquery','cookiebase'],function($,cookie){
 													})
 							
 						})
-						console.log(res);
+						// console.log(res);
 					}
 				},
 				error:function(){

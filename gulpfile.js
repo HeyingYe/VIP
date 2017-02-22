@@ -44,7 +44,18 @@ gulp.task('css',function(){
     gulp.src("./css/*.css").pipe( connect.reload() );
 })
 
-
+//监听主页css
+gulp.task("indexCss",function(){
+        sass("./index/sass/style.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./index/css"))
+})
+//监听主页头部css
+gulp.task("topCss",function(){
+        sass("./index/sass/top.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./index/css"))
+})
 
 
 
@@ -56,8 +67,10 @@ gulp.task("watch",function(){
     //[] 要执行的任务
     console.log('watch');
     // gulp.watch("./*.html",["refalseHTML"]);
-    gulp.watch("./login/sass/index.scss",["comCss"]);
+    // gulp.watch("./login/sass/index.scss",["comCss"]);
     // gulp.watch("./js/*.js",["js"]); //不科学
     // gulp.watch("./css/*.css",['css']);  
+    gulp.watch("./index/sass/style.scss",["indexCss"]);
+    gulp.watch("./index/sass/top.scss",["topCss"]);
 })
 
