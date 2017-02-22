@@ -7,13 +7,13 @@ define(['jquery','cookiebase'],function($,cookie){
 				self.cookie();
 				//开始验证用户信息
 				var obj = {};
-				if(!$('.user').val()){
+				if($('.user').val()){
 					//用户名不为空
 					obj.name = true;
 				}else{
 					obj.name = false;
 				}
-				if(!$('.psw').val()){
+				if($('.psw').val()){
 					//用户名不为空
 					obj.psw = true;
 				}else{
@@ -28,12 +28,14 @@ define(['jquery','cookiebase'],function($,cookie){
 						}
 					}
 					//注册信息是否正确
+					// console.log(flag)
 					if(flag){
-						//正确开始登录
-
+						//正确开始登录,发送数据
+						self.ajax();
 					}else{
 						flag = true;
 					}
+					
 					return false;
 				})
 
@@ -44,9 +46,17 @@ define(['jquery','cookiebase'],function($,cookie){
 						$(this).css({
 							'border-color':"#333"
 						})
+						$('.user_error').css({
+							'opacity':0,
+							'bottom':0
+						})
 					}else{
 						$(this).css({
 							'border-color':"red"
+						})
+						$('.user_error').html('请输入登录名').css({
+							'opacity':1,
+							'bottom':-24
 						})
 					}
 				})
@@ -56,11 +66,19 @@ define(['jquery','cookiebase'],function($,cookie){
 					if($(this).val()){
 						//不为空
 						$(this).css({
-							border-color:"#333";
+							'border-color':"#333",
+						})
+						$('.psw_error').css({
+							'opacity':0,
+							'bottom':0
 						})
 					}else{
 						$(this).css({
-							border-color:"red";
+							'border-color':"red",
+						})
+						$('.psw_error').html('请输入密码').css({
+							'opacity':1,
+							'bottom':-24
 						})
 					}
 				})
@@ -79,6 +97,33 @@ define(['jquery','cookiebase'],function($,cookie){
 				//不存在
 
 			}
+		},
+		ajax:function(){
+			$.ajax({
+				type:'POST',
+				url:'../php/login.php',
+				success:function(res){
+					var res = JSON.parse(res);
+					// console.log(res);
+					if(res.status == 200){
+						//登录成功
+						console.log("登录成功")
+						// location.assign()
+					}else{
+						$('.psw_error').html('登录名或密码错误').css({
+							'opacity':1,
+							'bottom':-24
+						})
+					}
+				},
+				error:function(){
+					console.log(arguments);
+				},
+				data:{
+					'name':$('.user').val(),
+					'psw':$('.psw').val()
+				}
+			})
 		}
 	}
 })

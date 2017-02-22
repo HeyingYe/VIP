@@ -66,11 +66,14 @@ html,body{
 }
 
 .login_form li input{
-	height: 18px;
+	height: 22px;
 	line-height: 18px;
 	padding: 6px 10px;
 	border-radius: 3px;
 	border: 1px solid #999;
+}
+.login_form .rem_user{
+	height:14px;
 }
 .login_text{
 	width: 248px;
@@ -132,6 +135,7 @@ html,body{
 	background:#f10180;
 	color:#fff;
 	border:none;
+	cursor:pointer;
 }
 .rem_user{
 	line-height:100%;
@@ -145,19 +149,16 @@ html,body{
 }
 /*****error**/
 .error_pos{
-	@include bg(#fffaf3);
-	border:1px solid #f8dbb1;
 	position:absolute;
-	top:-45px;
+	bottom:0px;
 	left:0px;
 	height:18px;
-	padding:6px 20px;
+	padding:4px 20px;
 	max-width: 800px;
-    border: 1px solid #dbdada;
-    border-radius: 2px;
-    font-size:16px;
+    font-size:14px;
     opacity:0;
     z-index: 100;
+    color:red;
 }
 .tip{
 	font-size:14px;
@@ -170,6 +171,9 @@ html,body{
 }
 .forget{
 	color:#000;
+}
+.forget:hover{
+	color:red;
 }
 .help{
 	float:right;

@@ -12,13 +12,12 @@ require.config({
 		'login':'login'
 	}
 })
-console.log("app")
 require(['jquery','reg','login'],function($,reg,login){
 	var path = location.pathname;
 	console.log(path)
-	if(path == "/VIP/reg/"){
+	if(path == "/VIP/reg/index.html"){
 		reg.init();
-	}else if(path == "/VIP/login/"){
+	}else if(path == "/VIP/login/index.html"){
 		login.init();
 	}
 	else{

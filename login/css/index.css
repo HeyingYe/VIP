@@ -19,7 +19,9 @@ html, body { background: #fdfbfb; height: 100%; width: 100%; }
 
 .login { float: right; margin-right: 80px; }
 
-.login_form li input { height: 18px; line-height: 18px; padding: 6px 10px; border-radius: 3px; border: 1px solid #999; }
+.login_form li input { height: 22px; line-height: 18px; padding: 6px 10px; border-radius: 3px; border: 1px solid #999; }
+
+.login_form .rem_user { height: 14px; }
 
 .login_text { width: 248px; }
 
@@ -39,20 +41,22 @@ html, body { background: #fdfbfb; height: 100%; width: 100%; }
 
 .login_end { position: relative; margin-bottom: 35px; }
 
-.login_btn { border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; height: 40px; line-height: 40px; width: 140px; text-align: center; background: #f10180; color: #fff; border: none; }
+.login_btn { border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; height: 40px; line-height: 40px; width: 140px; text-align: center; background: #f10180; color: #fff; border: none; cursor: pointer; }
 
 .rem_user { line-height: 100%; font-size: 14px; }
 
 .footer { position: absolute; width: 100%; text-align: center; bottom: 200px; }
 
 /*****error**/
-.error_pos { background: #fffaf3; border: 1px solid #f8dbb1; position: absolute; top: -45px; left: 0px; height: 18px; padding: 6px 20px; max-width: 800px; border: 1px solid #dbdada; border-radius: 2px; font-size: 16px; opacity: 0; z-index: 100; }
+.error_pos { position: absolute; bottom: 0px; left: 0px; height: 18px; padding: 4px 20px; max-width: 800px; font-size: 14px; opacity: 0; z-index: 100; color: red; }
 
 .tip { font-size: 14px; height: 19px; line-height: 19px; color: #000; }
 
 .reg { color: red; }
 
 .forget { color: #000; }
+
+.forget:hover { color: red; }
 
 .help { float: right; margin-right: 80px; }
 
