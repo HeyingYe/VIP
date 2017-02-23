@@ -1,19 +1,21 @@
 <?php 
-    class Menu{
+    class More{
         public $name;
+        public $src;
     }
     
     $con = new mysqli('127.0.0.1','root','','vip');
     $con->query("set names utf8"); //设置编码为utf8 显示中文
-    $sql = 'select * from menu_list';
+    $sql = 'select * from more_data';
     $res = $con->query($sql);
     $arr = array();
     if(!$con->connect_error){
          if($res->num_rows > 0){
                 while($row = $res->fetch_assoc()){
-                    $menu = new Menu();
-                    $menu->name = $row["name"];
-                    array_push($arr, $menu);
+                    $more = new More();
+                    $more->name = $row["name"];
+                    $more->src = $row["src"];
+                    array_push($arr, $more);
                 }
             }
     }else{

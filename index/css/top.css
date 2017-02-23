@@ -54,12 +54,12 @@
 .bz .car a { display: inline-block; position: absolute; left: 35px; bottom: 22px; font-size: 14px; color: #000; }
 
 /****header_menu*****/
-.header_menu { height: 40px; width: 100%; line-height: 40px; margin-top: 10px; background-color: #f10180; font-weight: bolder; position: relative; }
-.header_menu .menu_wrap { width: 1000px; margin: 0px auto; overflow: hidden; }
-.header_menu .menu_left { float: left; }
+.header_menu { height: 40px; width: 100%; line-height: 40px; margin-top: 10px; background-color: #f10180; position: relative; }
+.header_menu .menu_wrap { width: 1000px; margin: 0px auto; }
+.header_menu .menu_left { float: left; position: relative; }
 .header_menu .menu_left li { float: left; }
-.header_menu .menu_left li a { display: block; height: 40px; line-height: 40px; padding: 0 14px; color: #fff; font-size: 16px; }
-.header_menu .menu_left li a:hover { background: #db0a76; }
+.header_menu .menu_left li .menu_left_a { display: block; height: 40px; line-height: 40px; padding: 0 14px; color: #fff; font-size: 16px; }
+.header_menu .menu_left li .menu_left_a:hover { background: #db0a76; }
 .header_menu .menu_left li .menu_active { background: #bd1067; }
 .header_menu .menu_right { float: right; }
 .header_menu .menu_right li { float: left; }
@@ -68,3 +68,11 @@
 .header_menu .menu_right li .type:hover { background: #db0a76 url(../img/type.png) no-repeat 10px 3px; }
 .header_menu .menu_right li .pre { background: url(../img/pre.png) no-repeat 10px 3px; }
 .header_menu .menu_right li .pre:hover { background: #db0a76 url(../img/pre.png) no-repeat 10px 3px; }
+
+.menu_more { position: relative; width: 60px; height: 40px; }
+.menu_more:hover .more_hidden { display: block; }
+.menu_more .more_hidden { position: absolute; right: 0px; top: 40px; width: 558px; max-height: 335px; padding: 26px 10px 11px 26px; z-index: 100; background: #fff; box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1); display: none; }
+.menu_more .more_hidden a { display: block; float: left; width: 170px; height: 96px; margin: 0 16px 16px 0; position: relative; }
+.menu_more .more_hidden a img { width: 100%; height: 100%; border-radius: 4px; }
+.menu_more .more_hidden .ping { position: absolute; left: 0; top: 50%; width: 170px; height: 48px; background: #000; opacity: 0.2; border-radius: 4px; z-index: 101; }
+.menu_more .more_hidden .more_text { position: absolute; left: 70px; top: 48px; text-align: center; line-height: 48px; z-index: 102; color: #fff; border-radius: 4px; font-weight: bolder; }

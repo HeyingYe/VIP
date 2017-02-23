@@ -55,21 +55,59 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 
 				//动态加载菜单模版数据
 				function Menu(){
-
+					var self = this;
+					//加载菜单数据
+					this.list_ajax(function(res){
+						console.log(res);
+						var data = {"data":JSON.parse(res)};
+						//{data:[{name:111},{name:112}]}
+						// console.log(data);
+						var list = self.template.left_list(data);
+						// var list = self.list(data);
+						// console.log(list);
+						$('.menu_more').append(list);
+							//加载菜单更多的数据
+						self.more_ajax(function(res){
+							console.log(res);
+							var data = {"data":JSON.parse(res)};
+							//{data:[{name:111},{name:112}]}
+							// console.log(data);
+							var list = self.template.more_data(data);
+							// var list = self.list(data);
+							// console.log(list);
+							$('.menu_wrap').append(list);
+						})
+					})
+					
 				}
-				Menu.prototype.list=template.complie(
-					"<ul>\
-						{{each list as value index}}\
-						{{if index == 0}}\
-							<li><a href='' class='menu_active'>{{index}}:{{value}}</a></li>\
-							{{else}}\
-							<li><a href=''>{{index}}：{{value}}</a></li>\
-						{{/if}}\
-					</ul>");
-				Menu.prototype.ajax = function(callback){
+				//{data:[{name:111},{name:112}]}
+				
+				Menu.prototype.template = {
+					left_list:template.compile(
+					"<ul class='menu_left'>\
+						{{each data as value index}}\
+							{{if index == 0}}\
+								<li><a href='' class='menu_active menu_left_a '>{{value.name}}</a></li>\
+								{{else if index == 8}}\
+								<li class='menu_more'><a href='' class='menu_left_a'>{{value.name}}</a></li>\
+								{{else}}\
+								<li><a href='' class='menu_left_a'>{{value.name}}</a></li>\
+							{{/if}}\
+						{{/each}}\
+					</ul>"),
+					more_data:template.compile(
+						"<div class='more_hidden'>\
+							<a href=''>\
+								<span class='more_text'>金融</span>\
+								<span class='ping'></span>\
+								<img src='../index/img/jinrong.jpg' alt='>\
+							</a>\
+						</div>")
+				}
+				Menu.prototype.list_ajax = function(callback){
 					$.ajax({
 		            type:"GET",
-		            url:"../php/menu_list.php",
+		            url:"../php/index/top_menu.php",
 		            success:function(res){
 		                if(callback){
 		                    callback(res);
@@ -78,12 +116,36 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 		                }
 		               
 		            },
+		            complete:function(){
+		            	console.log("正在请求")
+		            },
 		            error:function(){
 		                console.log(arguments);
 		            },
 		            dataType:"jsonp"
        				})
 				}
+				Menu.prototype.more_ajax = function(callback){
+					$.ajax({
+		            type:"GET",
+		            url:"../php/index/top_more.php",
+		            success:function(res){
+		                if(callback){
+		                    callback(res);
+		                }else{
+		                    console.log(res); 
+		                }
+		            },
+		            complete:function(){
+		            	console.log("正在请求")
+		            },
+		            error:function(){
+		                console.log(arguments);
+		            },
+		            dataType:"jsonp"
+       				})
+				}
+				var menu = new Menu();
 			})
 			
 		},

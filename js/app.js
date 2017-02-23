@@ -4,7 +4,7 @@ require.config({
 		'reg':['jquery','cookiebase'],
 		'login':['jquery','cookiebase'],
 		'index':['jquery','cookiebase','top'],
-		'top':['jquery']
+		'top':['jquery','cookiebase','template']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
