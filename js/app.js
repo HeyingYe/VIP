@@ -3,7 +3,8 @@ require.config({
 	shim:{
 		'reg':['jquery','cookiebase'],
 		'login':['jquery','cookiebase'],
-		'index':['jquery','cookiebase']
+		'index':['jquery','cookiebase','top'],
+		'top':['jquery']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -11,7 +12,8 @@ require.config({
 		'template':'template',
 		'cookiebase':'cookiebase',
 		'login':'login',
-		'index':'index'
+		'index':'index',
+		'top':'./index/top'
 	}
 })
 require(['jquery','reg','login','index'],function($,reg,login,index){

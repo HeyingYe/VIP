@@ -1,11 +1,9 @@
-define(['jquery','cookiebase'],function($,cookie){
+define(['jquery','cookiebase','top'],function($,cookie,top){
 
 	return {
 		init:function(){
-			var self = this;
-			$('#top').load('../html/index/top.html',function(){
-
-			})
+			//引入主页头部
+			top.init();
 		}
 	}
 })
