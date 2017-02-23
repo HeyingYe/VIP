@@ -1,63 +1,94 @@
-define(['jquery'],function($){
+define(['jquery','cookiebase','template'],function($,cookie,template){
 	return {
 		init:function(){
 			var self = this;
+			//顶部导航
 			$('#top').load('../html/index/top.html',function(){
-				//地区
-				$('.area_btn').hover(function(){
-					$('.area_hidden ').css({
+				//使用cookie的信息，设置用户名
+				var sCookie = getCookie('user');
+				var aUser = sCookie?JSON.parse(sCookie):[];
+				var name;
+				if(aUser){
+					name = aUser[aUser.length - 1].phone;
+					$('.username').html(name);
+				}
+				
+				//二级菜单显示
+				function Active(btn1,btn2,cla){
+					this.work(btn1,btn2,cla);
+				}
+				Active.prototype.work = function(btn1,btn2,cla){
+					$(btn1).hover(function(){
+					$(btn2 ).css({
 						'display':'block'
 					})
-				},function(){
-					$('.area_hidden ').css({
-						'display':'none'
+					},function(){
+						$(btn2 ).css({
+							'display':'none'
+						})
 					})
-				})
-				$('.area_hidden').hover(function(){
-					$('.area_btn').addClass('area_btn_active');
-					$('.area_hidden ').css({
-						'display':'block'
+					$(btn2 ).hover(function(){
+						$(this).css({
+							'display':'block'
+						})
+						$(btn1).addClass(cla);
+					},function(){
+						$(btn1).removeClass(cla);
+						$(this).css({
+							'display':'none'
+						})
 					})
-				},function(){
-					$('.area_btn').removeClass('area_btn_active');
-					$('.area_hidden ').css({
-						'display':'none'
-					})
-				})
+				}
+				var collect = new Active('.tool_collect_btn','.tool_collect_hidde','btn_active');
+				var club = new Active('.tool_vipclub_btn','.tool_vipclub_hidden ','btn_active');
+				var service = new Active('.tool_service_btn','.tool_service_hidden ','btn_active');
+				var phone = new Active('.tool_phone_btn','.tool_phone_hidden ','btn_active');
+				var more = new Active('.tool_more_btn','.tool_more_hidden ','btn_active');
+				var area = new Active('.area_btn','.area_hidden','area_btn_active');
+				// //地区
 				$('.area_hidden').on('click','a',function(){
 					$('a[class=active]').removeClass('active');
 					$(this).addClass('active');
 					$('.area_btn').html($(this).html())
 					return false;
 				})
-				//二级菜单显示
-				function Active(){
+
+				//动态加载菜单模版数据
+				function Menu(){
 
 				}
-				Active.prototype.show = function(){
-					
+				Menu.prototype.list=template.complie(
+					"<ul>\
+						{{each list as value index}}\
+						{{if index == 0}}\
+							<li><a href='' class='menu_active'>{{index}}:{{value}}</a></li>\
+							{{else}}\
+							<li><a href=''>{{index}}：{{value}}</a></li>\
+						{{/if}}\
+					</ul>");
+				Menu.prototype.ajax = function(callback){
+					$.ajax({
+		            type:"GET",
+		            url:"../php/menu_list.php",
+		            success:function(res){
+		                if(callback){
+		                    callback(res);
+		                }else{
+		                    console.log(res); 
+		                }
+		               
+		            },
+		            error:function(){
+		                console.log(arguments);
+		            },
+		            dataType:"jsonp"
+       				})
 				}
-				$('.tool_collect_btn').hover(function(){
-					$('.tool_collect_hidde ').css({
-						'display':'block'
-					})
-				},function(){
-					$('.tool_collect_hidde ').css({
-						'display':'none'
-					})
-				})
-				$('.tool_collect_hidde ').hover(function(){
-					$(this).css({
-						'display':'block'
-					})
-					$('.tool_collect_btn').addClass('btn_active');
-				},function(){
-					$('.tool_collect_btn').removeClass('btn_active');
-					$(this).css({
-						'display':'none'
-					})
-				})
 			})
+			
+		},
+		cookie:function(){
+
 		}
 	}
 })
