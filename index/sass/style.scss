@@ -1,7 +1,13 @@
 @import "./reset.css";
 @import "./top.css";
-
+@import "./banner.css";
 body{
 	min-width:1000px;
 	font-size:16px;
+}
+.banner{
+	height: 400px;
+	width: 100%;
+	background:url(../img/bg.jpg) center center;
+	
 }

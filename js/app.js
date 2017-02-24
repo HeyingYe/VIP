@@ -4,7 +4,8 @@ require.config({
 		'reg':['jquery','cookiebase'],
 		'login':['jquery','cookiebase'],
 		'index':['jquery','cookiebase','top'],
-		'top':['jquery','cookiebase','template']
+		'top':['jquery','cookiebase','template'],
+		'banner':['jquery']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -13,7 +14,8 @@ require.config({
 		'cookiebase':'cookiebase',
 		'login':'login',
 		'index':'index',
-		'top':'./index/top'
+		'top':'./index/top',
+		'banner':'./index/banner'
 	}
 })
 require(['jquery','reg','login','index'],function($,reg,login,index){

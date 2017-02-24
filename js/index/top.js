@@ -58,26 +58,31 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 					var self = this;
 					//加载菜单数据
 					this.list_ajax(function(res){
-						console.log(res);
-						var data = {"data":JSON.parse(res)};
+						// console.log(res);
+						var data1 = {"data":JSON.parse(res)};
 						//{data:[{name:111},{name:112}]}
 						// console.log(data);
-						var list = self.template.left_list(data);
+						var list1 = self.template.left_list(data1);
 						// var list = self.list(data);
-						// console.log(list);
-						$('.menu_more').append(list);
-							//加载菜单更多的数据
+						// console.log(list1);
+						$('.menu_wrap').append(list1);
+
+						//加载菜单更多的数据
 						self.more_ajax(function(res){
-							console.log(res);
-							var data = {"data":JSON.parse(res)};
+							// console.log(res);
+							var data2 = {"data":JSON.parse(res)};
 							//{data:[{name:111},{name:112}]}
-							// console.log(data);
-							var list = self.template.more_data(data);
+							// console.log(data2);
+							var list2 = self.template.more_data(data2);
 							// var list = self.list(data);
-							// console.log(list);
-							$('.menu_wrap').append(list);
+							// console.log(list2);
+							$('.menu_more').append(list2);
+							//加载完数据后绑定事件
+							self.bind();
 						})
+						
 					})
+					
 					
 				}
 				//{data:[{name:111},{name:112}]}
@@ -97,11 +102,13 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 					</ul>"),
 					more_data:template.compile(
 						"<div class='more_hidden'>\
-							<a href=''>\
-								<span class='more_text'>金融</span>\
-								<span class='ping'></span>\
-								<img src='../index/img/jinrong.jpg' alt='>\
-							</a>\
+							{{each data as value index}}\
+								<a href=''>\
+									<span class='more_text'>{{value.name}}</span>\
+									<span class='ping'></span>\
+									<img src='{{value.src}}' alt='{{value.name}}'>\
+								</a>\
+							{{/each}}\
 						</div>")
 				}
 				Menu.prototype.list_ajax = function(callback){
@@ -144,6 +151,29 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 		            },
 		            dataType:"jsonp"
        				})
+				}
+				Menu.prototype.bind = function(){
+					$('.more_hidden>a').hover(function(){
+						var text = this.getElementsByClassName('more_text')[0];
+						var ping = this.getElementsByClassName('ping')[0];
+						$(text).animate({
+							top:'24'
+						})
+						$(ping).animate({
+							height:'96',
+							top:'0'
+						})
+					},function(){
+						var text = this.getElementsByClassName('more_text')[0];
+						var ping = this.getElementsByClassName('ping')[0];
+						$(text).animate({
+							top:'48'
+						})
+						$(ping).animate({
+							height:'48',
+							top:'48'
+						})
+					})
 				}
 				var menu = new Menu();
 			})
