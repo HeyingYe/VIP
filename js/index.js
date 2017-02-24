@@ -1,4 +1,4 @@
-define(['jquery','cookiebase','top','banner'],function($,cookie,top,banner){
+define(['jquery','cookiebase','top','banner','floor'],function($,cookie,top,banner,floor){
 
 	return {
 		init:function(){
@@ -6,6 +6,8 @@ define(['jquery','cookiebase','top','banner'],function($,cookie,top,banner){
 			top.init();
 			//引入轮播图
 			banner.init();
+			//引入楼层
+			floor.init();
 		}
 	}
 })

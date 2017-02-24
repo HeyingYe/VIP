@@ -1,6 +1,9 @@
 @import url(./reset.css);
 @import url(./top.css);
 @import url(./banner.css);
-body { min-width: 1000px; font-size: 16px; }
+@import url(./floor.css);
+body { min-width: 1000px; width: 100%; }
 
-.banner { height: 380px; width: 100%; background: url(../img/bg.jpg) center top; position: relative; }
+.banner { height: 380px; background: url(../img/bg.jpg) center top; position: relative; }
+
+.floor { margin-top: 60px; }

@@ -1,13 +1,18 @@
 @import "./reset.css";
 @import "./top.css";
 @import "./banner.css";
+@import "./floor.css";
 body{
 	min-width:1000px;
-	font-size:16px;
+	width: 100%;
+	// font-size:16px;	
 }
+
 .banner{
 	height: 380px;
-	width: 100%;
 	background:url(../img/bg.jpg) center top;
 	position:relative;
+}
+.floor{
+	margin-top: 60px;
 }

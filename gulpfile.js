@@ -62,7 +62,12 @@ gulp.task("bannerCss",function(){
             style:"compact"
         }).pipe(gulp.dest("./index/css"))
 })
-
+//监听floor
+gulp.task("floorCss",function(){
+        sass("./index/sass/floor.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./index/css"))
+})
 
 gulp.task("watch",function(){
     connect.server({
@@ -76,7 +81,7 @@ gulp.task("watch",function(){
     // gulp.watch("./js/*.js",["js"]); //不科学
     // gulp.watch("./css/*.css",['css']);  
     gulp.watch("./index/sass/style.scss",["indexCss"]);
-    gulp.watch("./index/sass/banner.scss",["bannerCss"]);
+    gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
 })
 

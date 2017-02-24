@@ -61,7 +61,7 @@ define(['jquery'],function($){
 					})
 				
 					$(texts).mouseover(function(){
-						console.log($(this).index());
+						// console.log($(this).index());
 						clearInterval(self.timer);
 						self.index = $(this).index() - 1;
 						// console.log(self);

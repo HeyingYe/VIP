@@ -1,0 +1,221 @@
+.floor_wrap{
+	width: 1020px;
+	margin: 0 auto;
+	.jingxuan_1ad{
+		.floor_tittle{
+			width: 100%;
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.floor_ban{
+		margin-top: 20px;
+		overflow:hidden;
+		li{
+			float:left;
+			width: 490px;
+			height: 300px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			position:relative;
+			img{
+				width: 490px;
+   		 		height: 300px;
+			}
+			.floor_name{
+				position:absolute;
+				top:170px;
+				left:80px;
+				// height: 100px;
+				width: 320px;
+				background: rgba(255,255,255,.9);
+    			border-radius: 4px;
+    			text-align:center;
+    			padding-bottom:5px;
+    			img{
+    				width: 100px;
+				    height: 50px;
+				    margin: 6px 0 3px;
+    			}
+    			span{
+				    margin: 0 55px;
+				    font-size:12px !important;
+				   	line-height: 1.2;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+				    white-space: nowrap;
+    			}
+			}
+			&:hover{
+				// filter: blur(5px);
+				.floor_good{
+					display:block;
+					z-index:4;
+					opacity:1;
+					
+				}
+			}
+			.floor_good{
+				transition:opacity .5s;
+				opacity:0;
+			    width: 450px;
+			    height: 260px;
+			    position: absolute;
+			    top: 20px;
+			    left: 20px;
+			    background-color: #fff;
+			    background-position: center 100px;
+			    border-radius: 4px;
+			    overflow: hidden;
+			    .floor_img{
+			    	
+			    	margin-top: 14px;
+				    padding-left: 30px;
+				    height: 184px;
+				    border-bottom: 1px dotted #333;
+					a{
+				    	float: left;
+					    margin-right: 16px;
+					    width: 121px;
+					    height: 83px;
+					    text-align:center;
+					    color:#000;
+					    img{
+					    	width: 121px;
+	    					height: 153px;
+	    					opacity:.7;
+	    					&:hover{
+	    						opacity:1;
+	    					}
+					    }
+				    }
+				}
+				.floor_des{
+					height: 50px;
+					line-height: 50px;
+					img{
+						float: left;
+					    width: 100px;
+					    height: 50px;
+					    margin:5px 20px 0px 50px;
+					}
+					a{
+						width: 71px;
+					    padding: 0 6px;
+					    background: #fff;
+					    border: 1px solid #ededed;
+					    line-height: 18px;
+					    border-radius: 12px;
+					    color: #666;
+					    text-align: center;
+					    font-size:14px;
+					    margin-right: 30px;
+					}
+					.floor_collect:hover{
+						background: #f10582;
+					    border: 1px solid #f10582;
+					    color: #fff;
+					}
+					.floor_zhuan{
+						margin-top: 18px;
+					    position: absolute;
+					    right: 30px;
+					    bottom: 22px;
+					    width: 117px;
+					    height: 22px;
+					    border: 1px solid #333;
+					    color: #333;
+					    text-align: center;
+					    line-height: 22px;
+					    background: #fff;
+					    border-radius: 2px;
+					    font-size: 14px;
+					    cursor: pointer;
+					    &:hover{
+					    	background: #333;
+    						color: #fff;
+					    }
+					}
+				}
+			    
+			}
+		}
+	}
+	.female_2ad,.xie_3ad{
+		margin-top:50px;
+		.ad_tittle{
+			margin-bottom: 20px;
+		    min-height: 43px;
+		    border-bottom: 1px #1a1a1a solid;
+		    img{
+		    	float:left;
+		    }
+		    span{
+		    	float:right;
+		    	display:block;
+		    	height: 44px;
+		    	line-height: 44px;
+		    	cursor:pointer;
+		    	&:hover{
+		    		color:red;
+		    	}
+		    }
+		}
+		.ad_goods{
+			overflow:hidden;
+			li{
+				float:left;
+				height: 275px;
+				width: 490px;
+				margin:0px 20px 20px 0;
+				position:relative;
+				&:hover{
+					span{
+						opacity:1;
+					}
+				}
+				img{
+					width: 490px;
+   					height: 235px;
+				}
+				p{
+					position:absolute;
+					top: 205px;
+    				left: 0;
+    				background: rgba(0,0,0,.6);
+				    height: 30px;
+				    line-height: 30px;
+				    width: 365px;
+				    padding: 0 100px 0 25px;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+				    white-space: nowrap;
+				    color: #fff;
+				    span{
+				    	opacity:0;
+				    	transition:opacity .5s;
+				    	text-align:center;
+				    	width: 71px;
+					    background: #fff;
+					    border: 1px solid #ededed;
+					    color: #333;
+					    border-radius: 12px;
+					    font-size:14px;
+					    height: 18px;
+					    line-height: 18px;
+					    padding: 0 8px;
+					    float:right;
+					    margin-top:6px;
+					    cursor:pointer;
+					    &:hover{
+					    	border: 1px solid #f32b80;
+					    	background-color: #f32b80;
+    						color: #fff;
+					    }
+				    }
+				}
+			}
+		}
+	}
+}

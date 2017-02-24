@@ -3,9 +3,10 @@ require.config({
 	shim:{
 		'reg':['jquery','cookiebase'],
 		'login':['jquery','cookiebase'],
-		'index':['jquery','cookiebase','top'],
+		'index':['jquery','cookiebase','top','floor'],
 		'top':['jquery','cookiebase','template'],
-		'banner':['jquery']
+		'banner':['jquery'],
+		'floor':['jquery']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -15,7 +16,8 @@ require.config({
 		'login':'login',
 		'index':'index',
 		'top':'./index/top',
-		'banner':'./index/banner'
+		'banner':'./index/banner',
+		'floor':'./index/floor'
 	}
 })
 require(['jquery','reg','login','index'],function($,reg,login,index){
