@@ -1,9 +1,12 @@
-.banner_wrap { width: 1000px; margin: 0 auto; height: 100%; }
-.banner_wrap ul { position: relative; height: 100%; }
-.banner_wrap ul .banner_num { position: absolute; left: 225px; bottom: -5px; height: 5px; width: 450px; }
-.banner_wrap ul .banner_num .banner_line { width: 150px; position: absolute; left: 0; bottom: 0; height: 5px; background: #e6057d; }
-.banner_wrap ul li { position: absolute; left: 0; top: 0; opacity: 0; }
-.banner_wrap ul .banner_active { opacity: 1; }
-.banner_wrap ul .banner_btn_pre, .banner_wrap ul .banner_btn_next { border-radius: 2px; position: absolute; width: 33px; height: 66px; line-height: 50px; font-size: 66px; cursor: pointer; top: 50%; margin-top: -53px; text-align: center; background: rgba(0, 0, 0, 0.5); opacity: 0; }
-.banner_wrap ul .banner_btn_next { right: -33px; }
-.banner_wrap ul .banner_btn_pre { left: -33px; }
+.banner_wrap { width: 976px; margin: 0 auto; height: 100%; background: #fff; padding: 12px 12px 0px 12px; box-shadow: 0 1px 3px rgba(167, 167, 167, 0.4); position: absolute; top: 20px; left: 50%; margin-left: -500px; }
+.banner_wrap ul { position: relative; height: 380px; overflow: hidden; }
+.banner_wrap ul .banner_num { position: absolute; left: 225px; bottom: 0px; height: 40px; line-height: 40px; }
+.banner_wrap ul .banner_num .banner_text { display: block; float: left; height: 40px; line-height: 40px; text-align: center; width: 195px; font-size: 14px; color: #000; position: relative; }
+.banner_wrap ul .banner_num .banner_text:after { content: "|"; font-family: tohama; font-size: 10px; margin-left: 10px; color: #e8e8e8; position: absolute; right: 0; }
+.banner_wrap ul .banner_num .banner_line { width: 195px; position: absolute; left: 0; bottom: 0; height: 3px; background: #e6057d; }
+.banner_wrap ul li { position: absolute; left: 0; top: 0; opacity: 0; z-index: 1; }
+.banner_wrap ul li img { height: 340px; width: 100%; }
+.banner_wrap ul .banner_active { opacity: 1; z-index: 2; }
+.banner_wrap ul .banner_btn_pre, .banner_wrap ul .banner_btn_next { user-select: none; border-radius: 2px; position: absolute; width: 33px; height: 66px; line-height: 50px; font-size: 66px; cursor: pointer; top: 50%; margin-top: -31px; z-index: 3; text-align: center; color: #fff; background: rgba(0, 0, 0, 0.4); opacity: 0; }
+.banner_wrap ul .banner_btn_next { right: -45px; }
+.banner_wrap ul .banner_btn_pre { left: -45px; }

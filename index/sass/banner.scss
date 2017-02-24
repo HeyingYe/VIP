@@ -1,22 +1,52 @@
 .banner_wrap{
-	width:1000px;
+	width:976px;
 	margin: 0 auto;
 	height: 100%;
+	background:#fff;
+	// background: #e6057d;
+	// opacity:0.86;
+	padding:12px 12px 0px 12px;
+	box-shadow: 0 1px 3px rgba(167,167,167,.4);
+	position:absolute;
+	top:20px;
+	left: 50%;
+	margin-left:-500px;
 	ul{
 		position:relative;
-		height: 100%;
+		height: 380px;
+		overflow:hidden;
 		.banner_num{
 			position:absolute;
 			left:225px;
-			bottom: -5px;
-			height: 5px;
-			width:450px;
+			bottom: 0px;
+			height: 40px;
+			line-height: 40px;
+			.banner_text{
+				display:block;
+				float:left;
+				height: 40px;
+				line-height: 40px;
+				text-align:center;
+				width:195px;
+				font-size:14px ;
+				color:#000 ;
+				position:relative;
+				&:after{
+					content: "|";
+				    font-family: tohama;
+				    font-size: 10px;
+				    margin-left: 10px;
+				    color: #e8e8e8;
+				    position: absolute;
+				    right: 0;
+				}
+			}
 			.banner_line{
-				width:150px;
+				width:195px;
 				position:absolute;
 				left:0;
 				bottom: 0;
-				height: 5px;
+				height: 3px;
 				background:#e6057d;	
 			}
 		}
@@ -25,11 +55,18 @@
 			left: 0;
 			top: 0;
 			opacity:0;
+			z-index:1;
+			img{
+				height:340px;
+				width:100%;
+			}
 		}
 		.banner_active{
 			opacity:1;
+			z-index:2;
 		}
 		.banner_btn_pre,.banner_btn_next{
+			user-select:none;
 			border-radius: 2px;
 		    position: absolute;
 		    width: 33px;
@@ -38,17 +75,27 @@
 		    font-size: 66px;
 		    cursor: pointer;
 		    top: 50%;
-		    margin-top: -53px;
-		    // z-index: 2;
+		    margin-top: -31px;
+		    z-index: 3;
 		    text-align: center;
-		    background: rgba(0,0,0,.5);
+		    color:#fff;
+		    background: rgba(0,0,0,.4);
 			opacity:0;
+			
 		}
 		.banner_btn_next{
-		    right:-33px;
+		    right:-45px;
+		 //    &:hover{
+			// 	opacity:1;
+			// 	right:0;
+			// }
 		}
 		.banner_btn_pre{
-			left:-33px;
+			left:-45px;
+			//  &:hover{
+			// 	opacity:1;
+			// 	left:0;
+			// }
 		}
 		
 	}
