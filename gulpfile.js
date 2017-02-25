@@ -74,6 +74,12 @@ gulp.task("listStyle",function(){
             style:"compact"
         }).pipe(gulp.dest("./list/css"))
 })
+//监听list_choose
+gulp.task("chooseStyle",function(){
+        sass("./list/sass/choose.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./list/css"))
+})
 gulp.task("watch",function(){
     connect.server({
         livereload:true
@@ -89,5 +95,6 @@ gulp.task("watch",function(){
     // gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
     gulp.watch("./list/sass/style.scss",["listStyle"])
+    gulp.watch("./list/sass/choose.scss",["chooseStyle"])
 })
 

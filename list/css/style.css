@@ -1,2 +1,4 @@
 @import url(./top.css);
 @import url(./reset.css);
+@import url(./choose.css);
+.choose { margin-top: 60px; width: 100%; }
