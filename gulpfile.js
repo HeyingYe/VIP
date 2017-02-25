@@ -68,7 +68,12 @@ gulp.task("floorCss",function(){
             style:"compact"
         }).pipe(gulp.dest("./index/css"))
 })
-
+//监听list
+gulp.task("listStyle",function(){
+        sass("./list/sass/style.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./list/css"))
+})
 gulp.task("watch",function(){
     connect.server({
         livereload:true
@@ -80,8 +85,9 @@ gulp.task("watch",function(){
     // gulp.watch("./login/sass/index.scss",["comCss"]);
     // gulp.watch("./js/*.js",["js"]); //不科学
     // gulp.watch("./css/*.css",['css']);  
-    gulp.watch("./index/sass/style.scss",["indexCss"]);
-    gulp.watch("./index/sass/floor.scss",["floorCss"]);
+    // gulp.watch("./index/sass/style.scss",["indexCss"]);
+    // gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
+    gulp.watch("./list/sass/style.scss",["listStyle"])
 })
 

@@ -1,6 +1,6 @@
 define(['jquery','cookiebase','template'],function($,cookie,template){
 	return {
-		init:function(){
+		init:function(callback){
 			var self = this;
 			//顶部导航
 			$('#top').load('../html/index/top.html',function(){
@@ -177,7 +177,9 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 				}
 				var menu = new Menu();
 			})
-			
+			if(callback){
+				callback();
+			}
 		},
 		cookie:function(){
 

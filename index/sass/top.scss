@@ -58,7 +58,7 @@ $fs:16px;
 	left:0px;
 	padding:4px 20px 20px 20px;
 	width:$wd * 0.25;
-	z-index:90;
+	z-index:1000;
 }
 .choose_area{
 	font-size:$fs - 4px;
@@ -260,10 +260,11 @@ $fs:16px;
 	height: 40px;
 	width:100%;
     line-height: 40px;
-    margin-top:10px;
     background-color: #f10180;
     // font-weight:bolder;
-    position:relative;
+    position:absolute;
+    top: 148px;
+    z-index:201;
     .menu_wrap{
 		width:$wd;
 		margin: 0px auto;
