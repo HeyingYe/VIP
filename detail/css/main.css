@@ -1,5 +1,22 @@
-.detail_wrap { width: 1000px; margin: 0 auto; position: relative; }
-.detail_wrap:after { content: ''; display: table; clear: both; }
-.detail_wrap .img_left { position: absolute; }
-.detail_wrap .img_left .img_box { width: 420px; height: 531px; z-index: 99; margin-bottom: 5px; }
-.detail_wrap .img_left .little_img { width: 420px; height: 79px; margin-right: 1px; overflow: hidden; }
+.detail_wrap { width: 1000px; margin: 0 auto; overflow: hidden; }
+.detail_wrap .img_left { float: left; }
+.detail_wrap .img_left .img_box { width: 420px; height: 531px; margin-bottom: 5px; position: relative; overflow: hidden; }
+.detail_wrap .img_left .img_box .big_img { display: none; position: absolute; left: 0; top: 0; }
+.detail_wrap .img_left .img_box img { position: absolute; cursor: crosshair; left: 0; top: 0; height: 100%; width: 100%; }
+.detail_wrap .img_left .little_img { width: 420px; height: 79px; margin-right: 1px; }
+.detail_wrap .img_left .little_img img { width: 62px; height: 78px; margin-right: 7px; border: 1px solid #fff; }
+.detail_wrap .img_left .little_img img:hover { border: 1px solid red; }
+.detail_wrap .right_choice { float: right; width: 550px; position: relative; min-height: 634px; }
+.detail_wrap .right_choice h3 { font-size: 16px; color: #333; max-height: 40px; overflow: hidden; line-height: 20px; margin-top: 8px; margin-bottom: 8px; font-weight: 700; }
+.detail_wrap .right_choice .price { background: url(../img/bg.png) center center; margin-bottom: 10px; padding: 0px 5px 0px 20px; }
+.detail_wrap .right_choice .price .act_price { font-family: arial; font-size: 48px; color: #f43499; line-height: 1.2; }
+.detail_wrap .right_choice .price .rmb { color: #f43499; font-size: 20px; }
+.detail_wrap .right_choice .detail_msg tr { line-height: 60px; }
+.detail_wrap .right_choice .detail_msg tr td { height: 40px; padding: 0 10px; margin: 0 10px; }
+.detail_wrap .right_choice .detail_msg tr td .choice_num { display: inline-block; height: 26px; width: 52px; line-height: 26px; font-size: 14px; border: 1px solid #ccc; padding: 1px 10px; margin: 0px 10px 10px 0px; text-align: center; cursor: pointer; }
+.detail_wrap .right_choice .detail_msg tr td .choice_num input { float: left; line-height: 26px; height: 26px; }
+.detail_wrap .right_choice .detail_msg tr .buy { width: 198px; height: 46px; line-height: 46px; font-size: 18px; color: #fff; cursor: pointer; background-color: #f10180; border: 1px solid #f10180; border-radius: 3px; text-align: center; vertical-align: top; margin-top: 40px; }
+.detail_wrap .right_choice .detail_msg tr .detail_num p { height: 28px; width: 76px; border: 1px solid #b3b3b3; }
+.detail_wrap .right_choice .detail_msg tr .detail_num span { display: block; float: left; width: 24px; height: 28px; line-height: 28px; color: #333; text-align: center; }
+.detail_wrap .right_choice .detail_msg tr .detail_num .minu { font-size: 28px; cursor: pointer; background: #f2f2f2; color: #ccc; border-right: 1px solid #f2f2f2; }
+.detail_wrap .right_choice .detail_msg tr .detail_num .add { font-size: 28px; float: right; color: #ccc; cursor: pointer; background: #f2f2f2; border-left: 1px solid #f2f2f2; }

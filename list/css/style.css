@@ -1,14 +1,7 @@
-@import url(./reset.css);
 @import url(./top.css);
-@import url(./banner.css);
-@import url(./floor.css);
-body { min-width: 1000px; width: 100%; position: relative; }
-
-#top { height: 168px; }
-
-.banner { height: 380px; background: url(../img/bg.jpg) center top; position: relative; margin-top: 20px; }
-
-.floor { margin-top: 60px; }
+@import url(./reset.css);
+@import url(./choose.css);
+.choose { margin-top: 60px; width: 100%; }
 
 #footer { width: 1000px; margin: 50px auto; height: 400px; }
 #footer img { width: 100%; height: 100%; }

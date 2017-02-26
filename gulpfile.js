@@ -106,7 +106,7 @@ gulp.task("watch",function(){
     // gulp.watch("./index/sass/style.scss",["indexCss"]);
     // gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
-    // gulp.watch("./list/sass/style.scss",["listStyle"])
+    gulp.watch("./list/sass/style.scss",["listStyle"])
     // gulp.watch("./list/sass/choose.scss",["chooseStyle"])
     gulp.watch("./detail/sass/style.scss",["detailStyle"])
     gulp.watch("./detail/sass/main.scss",["detailMail"])

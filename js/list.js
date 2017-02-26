@@ -25,6 +25,16 @@ define(['jquery','top','template'],function($,top,template){
 					var list = self.template.list(data);
 					// console.log(list)
 					$('.list_goods').append(list);
+					//设置a链接的href
+					$('.list_goods>ul').on('click','li',function(){
+						var type = location.search;
+						var goodsId = $(this).attr('data-id');
+						var search =type + "&id=" + goodsId;
+						var href = 'http://localhost/VIP/detail/index.html' + search;
+						$(this).find('a').attr('href',href);
+						location.assign(href);
+					})
+					
 					//绑定事件
 					$('.aImg>img').mouseover(function(){
 						// console.log(this)
