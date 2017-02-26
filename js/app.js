@@ -6,8 +6,9 @@ require.config({
 		'index':['jquery','cookiebase','top','floor'],
 		'top':['jquery','cookiebase','template'],
 		'banner':['jquery'],
-		'floor':['jquery'],
-		'list':['jquery','top']
+		'floor':['jquery','template'],
+		'list':['jquery','top','template'],
+		'detail':['jquery','template']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -19,10 +20,11 @@ require.config({
 		'top':'./index/top',
 		'banner':'./index/banner',
 		'floor':'./index/floor',
-		'list':'list'
+		'list':'list',
+		'detail':'detail'
 	}
 })
-require(['jquery','reg','login','index','list'],function($,reg,login,index,list){
+require(['jquery','reg','login','index','list','detail'],function($,reg,login,index,list,detail){
 	var path = location.pathname;
 	console.log(path)
 	if(path == "/VIP/reg/index.html"){
@@ -33,6 +35,8 @@ require(['jquery','reg','login','index','list'],function($,reg,login,index,list)
 		index.init();
 	}else if(path == "/VIP/list/index.html"){
 		list.init();
+	}else if(path == "/VIP/detail/index.html"){
+		detail.init();
 	}
 	else{
 

@@ -11,7 +11,7 @@ define(['jquery','template'],function($,template){
 					$(this).addClass('list_active').siblings().removeClass();
 					//移动页面
 					var index = $(this).index();
-					var floor_top = $(".stairs").eq(index).offset().top;
+					var floor_top = $(".stairs").eq(index).offset().top ;
 					$("html, body").stop().animate({scrollTop: floor_top}, 200, function(){
 						isMoving = false; //移动完成
 					});
@@ -24,21 +24,37 @@ define(['jquery','template'],function($,template){
 					if(offHeight < scrollHeight){
 						var Top = scrollHeight + 100;
 						$('.floor_list').offset({top:Top})
+					}else{
+						$('.floor_list').offset({top:offHeight})
 					}
 					//判断页面滚动，梯层的位置
 					if (!isMoving) {
 						var floor_scrllTop = $(document).scrollTop();
+						// console.log("滚动距离:"+floor_scrllTop)
+
 						//遍历所有的楼层div
 						$(".stairs").each(function(){
+
 							var floor_top = $(this).offset().top;
+							// console.log("梯层距离："+floor_top)
 							if (floor_scrllTop >= floor_top) {
-								var index = $(this).index();
+								var index = $(this).index() - 1;
+								// console.log(index)
 								$(".floor_list li").eq(index).addClass("list_active")
 								                 .siblings("li").removeClass(); 
 							}
 						})
 					}
 				})
+				// $('.stairs').on("click",'a',function(){
+				// 	return false;
+				// })
+				//点击楼层，发送信息到后台，跳转到相应的页面
+				// $('.stairs').on("click",'a',function(){
+				// 	var goods_type = $(this).attr('data-type');
+				// 	console.log(goods_type)
+				// 	location.assign('http://localhost/VIP/list/index.html?type='+goods_type)
+				// })
 				
 				// function Floor(){
 

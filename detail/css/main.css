@@ -1,0 +1,5 @@
+.detail_wrap { width: 1000px; margin: 0 auto; position: relative; }
+.detail_wrap:after { content: ''; display: table; clear: both; }
+.detail_wrap .img_left { position: absolute; }
+.detail_wrap .img_left .img_box { width: 420px; height: 531px; z-index: 99; margin-bottom: 5px; }
+.detail_wrap .img_left .little_img { width: 420px; height: 79px; margin-right: 1px; overflow: hidden; }

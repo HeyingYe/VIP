@@ -8,7 +8,7 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 				var sCookie = getCookie('user');
 				var aUser = sCookie?JSON.parse(sCookie):[];
 				var name;
-				if(aUser){
+				if(aUser != false){
 					name = aUser[aUser.length - 1].phone;
 					$('.username').html(name);
 				}

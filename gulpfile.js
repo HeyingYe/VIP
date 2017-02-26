@@ -80,6 +80,18 @@ gulp.task("chooseStyle",function(){
             style:"compact"
         }).pipe(gulp.dest("./list/css"))
 })
+//监听detail
+gulp.task("detailStyle",function(){
+        sass("./detail/sass/style.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./detail/css"))
+})
+//监听detail mail
+gulp.task("detailMail",function(){
+        sass("./detail/sass/main.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./detail/css"))
+})
 gulp.task("watch",function(){
     connect.server({
         livereload:true
@@ -94,7 +106,9 @@ gulp.task("watch",function(){
     // gulp.watch("./index/sass/style.scss",["indexCss"]);
     // gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
-    gulp.watch("./list/sass/style.scss",["listStyle"])
-    gulp.watch("./list/sass/choose.scss",["chooseStyle"])
+    // gulp.watch("./list/sass/style.scss",["listStyle"])
+    // gulp.watch("./list/sass/choose.scss",["chooseStyle"])
+    gulp.watch("./detail/sass/style.scss",["detailStyle"])
+    gulp.watch("./detail/sass/main.scss",["detailMail"])
 })
 

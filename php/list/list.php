@@ -4,22 +4,26 @@
         public $goodsName;
         public $goodsPrice;
         public $goodsImg;
+        public $goodss1;
+        public $goodss2;
     }
-    
-    $con = new mysqli('127.0.0.1','root','','dome');
+    $type = $_GET['type'];
+    $con = new mysqli('127.0.0.1','root','','vip');
     $con->query("set names utf8"); //设置编码为utf8 显示中文
-    $sql = 'select * from goods';
+    $sql = 'select * from '.$type;
+    // print_r($type);
     $res = $con->query($sql);
     $arr = array();
     if(!$con->connect_error){
          if($res->num_rows > 0){
                 while($row = $res->fetch_assoc()){
                     $goods = new Goods();
-                    $goods->goodsId = $row["gid"];
-                    $goods->goodsName = $row["goodsname"];
-                    $goods->goodsPrice = $row["goodsprice"];
-                    $goods->goodsImg = $row["goodsImg"];
-
+                    $goods->goodsId = $row["uid"];
+                    $goods->goodsName = $row["name"];
+                    $goods->goodsPrice = $row["price"];
+                    $goods->goodsImg = $row["src"];
+                    $goods->goodss1 = $row["s1"];
+                    $goods->goodss2 = $row["s2"];
                     array_push($arr, $goods);
                 }
 
@@ -31,7 +35,7 @@
         array_push($arr, "连接数据库失败");
     }
 
-    print_r($arr);
+    // // print_r($arr);
     
         //判断是否是jsonp的请求
         //isset(var) 判断变量是否被定义

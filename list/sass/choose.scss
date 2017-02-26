@@ -14,7 +14,7 @@
     line-height: 22px;
     box-shadow: none;
     width:1020px;
-	margin: 20px auto;
+	margin: 30px auto;
 	font-size:14px;
 	border:1px solid #ccc;
 	.choice_range{
@@ -207,13 +207,6 @@
 	margin:0 auto;
 	ul{
 		height: 1111px;
-		&:after,&:before{
-			content:" ";
-			display:table;
-		}
-		&:after{
-			clear:both;
-		}
 		// .good_c{
 		// 	position: relative;
 		//     z-index: 1;

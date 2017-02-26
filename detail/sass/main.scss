@@ -1,0 +1,26 @@
+.detail_wrap{
+	width: 1000px;
+	margin: 0 auto;
+	position:relative;
+	&:after{
+		content:'';
+		display:table;
+		clear:both;
+	}
+	.img_left{
+		position:absolute;
+		
+		.img_box{
+			width: 420px;
+		    height: 531px;
+		    z-index: 99;
+		    margin-bottom: 5px;
+		}
+		.little_img{
+		    width: 420px;
+		    height: 79px;
+		    margin-right: 1px;
+		    overflow: hidden;
+		}
+	}
+}
