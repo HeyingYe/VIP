@@ -11,8 +11,9 @@ define(['jquery','template'],function($,template){
 					$(this).addClass('list_active').siblings().removeClass();
 					//移动页面
 					var index = $(this).index();
-					var floor_top = $(".stairs").eq(index).offset().top ;
-					$("html, body").stop().animate({scrollTop: floor_top}, 200, function(){
+					var floor_top = $(".stairs").eq(index).offset().top - 44;
+					// console.log(floor_top);
+					$('body').stop().animate({scrollTop: floor_top}, 200, function(){
 						isMoving = false; //移动完成
 					});
 				})
@@ -35,7 +36,7 @@ define(['jquery','template'],function($,template){
 						//遍历所有的楼层div
 						$(".stairs").each(function(){
 
-							var floor_top = $(this).offset().top;
+							var floor_top = $(this).offset().top - 44;
 							// console.log("梯层距离："+floor_top)
 							if (floor_scrllTop >= floor_top) {
 								var index = $(this).index() - 1;

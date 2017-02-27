@@ -12,6 +12,23 @@ body{
 #main{
 	margin-top:50px;
 }
+.right_aside{
+	width: 36px;
+	height:100%;
+	background-color: #262626;
+	color:#fff;
+	position:absolute;
+	top: 0;
+	right: 0;
+	.car_shopping{
+		text-align: center;
+    	cursor: pointer;
+    	background-color: #df147f;
+    	line-height: 18px;
+    	word-wrap: break-word;
+    	font-size:14px;
+	}
+}
 #footer{
 	width: 1000px;
 	margin: 50px auto;

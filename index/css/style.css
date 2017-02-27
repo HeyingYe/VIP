@@ -4,9 +4,9 @@
 @import url(./floor.css);
 body { min-width: 1000px; width: 100%; position: relative; }
 
-#top { height: 168px; }
+#top { height: 188px; }
 
-.banner { height: 380px; background: url(../img/bg.jpg) center top; position: relative; margin-top: 20px; }
+.banner { height: 380px; background: url(../img/bg.jpg) center top; position: relative; }
 
 .floor { margin-top: 60px; }
 

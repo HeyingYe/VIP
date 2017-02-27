@@ -11,20 +11,37 @@
 		    margin-bottom: 5px;
 		    position:relative;
 		    overflow:hidden;
-		    .big_img{
+		    .small_box{
+		    		position:absolute;
+		    		left: 0;
+		    		top: 0;
+		    		background: rgba(200, 250, 200, 0.4);
+		    		display:none;
+		    		height: 40px;
+		    		width: 40px;
+		    		
+		    		z-index:20;
+		    	}
+		    .big_box{
 		    	display:none;
-		    	position:absolute;
-		    	left: 0;
-		    	top: 0;
-		    }
-		    img{
-		    	position:absolute;
 		    	cursor: crosshair;
+		    	position:absolute;
+		    	width: 420px;
+		    	height: 531px;
 		    	left: 0;
 		    	top: 0;
-		    	height: 100%;
-		    	width: 100%;
+		    	overflow:hidden;
+		    	z-index:10;		    	
+		    	.big_Img{
+			    	position:absolute;
+			    	z-index:11;
+			    	left: 0;
+			    	top: 0;
+			    	height: 100%;
+			    	width: 100%;
+			    }
 		    }
+		    
 		}
 		.little_img{
 			// position:absolute;
@@ -126,6 +143,7 @@
     					line-height:28px;
     					color:#333;
     					text-align:center;
+    					user-select:none;
 					}
 					.minu{
 						font-size:28px;

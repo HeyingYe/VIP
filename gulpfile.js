@@ -103,7 +103,7 @@ gulp.task("watch",function(){
     // gulp.watch("./login/sass/index.scss",["comCss"]);
     // gulp.watch("./js/*.js",["js"]); //不科学
     // gulp.watch("./css/*.css",['css']);  
-    // gulp.watch("./index/sass/style.scss",["indexCss"]);
+    gulp.watch("./index/sass/style.scss",["indexCss"]);
     // gulp.watch("./index/sass/floor.scss",["floorCss"]);
     // gulp.watch("./index/sass/top.scss",["topCss"]);
     gulp.watch("./list/sass/style.scss",["listStyle"])

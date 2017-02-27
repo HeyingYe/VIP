@@ -1,8 +1,9 @@
 .detail_wrap { width: 1000px; margin: 0 auto; overflow: hidden; }
 .detail_wrap .img_left { float: left; }
 .detail_wrap .img_left .img_box { width: 420px; height: 531px; margin-bottom: 5px; position: relative; overflow: hidden; }
-.detail_wrap .img_left .img_box .big_img { display: none; position: absolute; left: 0; top: 0; }
-.detail_wrap .img_left .img_box img { position: absolute; cursor: crosshair; left: 0; top: 0; height: 100%; width: 100%; }
+.detail_wrap .img_left .img_box .small_box { position: absolute; left: 0; top: 0; background: rgba(200, 250, 200, 0.4); display: none; height: 40px; width: 40px; z-index: 20; }
+.detail_wrap .img_left .img_box .big_box { display: none; cursor: crosshair; position: absolute; width: 420px; height: 531px; left: 0; top: 0; overflow: hidden; z-index: 10; }
+.detail_wrap .img_left .img_box .big_box .big_Img { position: absolute; z-index: 11; left: 0; top: 0; height: 100%; width: 100%; }
 .detail_wrap .img_left .little_img { width: 420px; height: 79px; margin-right: 1px; }
 .detail_wrap .img_left .little_img img { width: 62px; height: 78px; margin-right: 7px; border: 1px solid #fff; }
 .detail_wrap .img_left .little_img img:hover { border: 1px solid red; }
@@ -17,6 +18,6 @@
 .detail_wrap .right_choice .detail_msg tr td .choice_num input { float: left; line-height: 26px; height: 26px; }
 .detail_wrap .right_choice .detail_msg tr .buy { width: 198px; height: 46px; line-height: 46px; font-size: 18px; color: #fff; cursor: pointer; background-color: #f10180; border: 1px solid #f10180; border-radius: 3px; text-align: center; vertical-align: top; margin-top: 40px; }
 .detail_wrap .right_choice .detail_msg tr .detail_num p { height: 28px; width: 76px; border: 1px solid #b3b3b3; }
-.detail_wrap .right_choice .detail_msg tr .detail_num span { display: block; float: left; width: 24px; height: 28px; line-height: 28px; color: #333; text-align: center; }
+.detail_wrap .right_choice .detail_msg tr .detail_num span { display: block; float: left; width: 24px; height: 28px; line-height: 28px; color: #333; text-align: center; user-select: none; }
 .detail_wrap .right_choice .detail_msg tr .detail_num .minu { font-size: 28px; cursor: pointer; background: #f2f2f2; color: #ccc; border-right: 1px solid #f2f2f2; }
 .detail_wrap .right_choice .detail_msg tr .detail_num .add { font-size: 28px; float: right; color: #ccc; cursor: pointer; background: #f2f2f2; border-left: 1px solid #f2f2f2; }
