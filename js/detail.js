@@ -23,6 +23,7 @@ define(['jquery','template','top'],function($,template,top){
 						});
 						$('.big_Img').prop('src',src);
 					})
+					//加减商品数量
 					$('.minu').click(function(){
 						var num = $('.detail_number').html();
 						console.log(num)
@@ -36,6 +37,7 @@ define(['jquery','template','top'],function($,template,top){
 						num++;
 						$('.detail_number').html(num)
 					})
+					//放大镜
 					$('.img_box').hover(function(){
 						var scale = 1100/420;
 						var sHeight = $(this).height() * scale;
@@ -58,16 +60,7 @@ define(['jquery','template','top'],function($,template,top){
 					})
 					//鼠标移动
 					$('.img_box').mousemove(function(evt){
-						// var scale = 1100/420;
 						var e = evt || event;
-						// var offLeft = e.offsetX;
-						// var offTop = e.offsetY;
-						// // console.log(this);
-						// $(this).find('.big_Img').css({
-						// 	left:- offLeft * scale,
-						// 	top:- offTop * scale,
-						// 	position:'absolute'
-						// })
 						var $img_box = $('.img_box');//小图
 						var $small_box = $('.small_box');//小范围
 						var $big_Img = $('.big_Img');//大图
@@ -104,12 +97,126 @@ define(['jquery','template','top'],function($,template,top){
 							top:- y * scale
 						})
 					})
+					//购物车
+					$('.car_shopping').on('click',function(){
+						var right = parseInt($('.car_goods').css('right'));
+						if(right != 36){
+							$('.car_goods').animate({
+								right:36
+							})
+						}else{
+							$('.car_goods').animate({
+								right:-274
+							})
+						}
+					})
+					//点击购买商品的动画
+					$('.buy').on('click',function(){
+						//必需选择尺码
+						var flag = $(':radio:checked');
+						if(flag[0] != undefined){
+							$('.goods_size').removeClass('goods_size_error');
+							var carPos;//购物车位置
+							//弹出购物袋
+							$('.car_goods').animate({
+									right:36
+								},function(){
+									//商品飞入购物袋效果
+									var $currentImg = $('.big_Img');
+									var $copyImg = $currentImg.clone();
+									// console.log($currentImg.height())
+									//获取图片原来的位置
+									var startPos = $('.buy').offset();
+									var startWidth = $currentImg.width();
+									var startHeight = $currentImg.height();
+									// console.log($('.img_box').width())
+									//设置复制图片的位置
+									$copyImg.css({
+										position:'absolute',
+										left:startPos.left ,
+										top:startPos.top ,
+										width:startWidth,
+										height:startHeight,
+										'z-index':1111111,
+									})
+									//将复制的图片插入
+									$copyImg.appendTo('body');
+									//获取购物车位置
+									var carPos = $('.car_goods').offset();
+									$copyImg.animate({
+										left:carPos.left,
+										top:carPos.top,
+										width:0,
+										height:0,
+										opacity:0
+									},1000,function(){
+										$copyImg.remove();
+										//加入购物车
+										var goods_list = $('.car_goods>ul>li');
+										// console.log(goods_list[0] == undefined)
+										var goods = location.search.split("=");
+										var goods_type = (goods[1].split("&"))[0];
+										var goods_id = goods[2];
+										var goods_uid = goods_type + goods_id;
+										if(goods_list[0] == undefined){
+											var html = "<li data-id = '"+goods_uid+"'>\
+														<img src='"+$('.big_Img').prop('src')+"' alt=''>\
+														<p>\
+															<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
+															<span class='car_num'>"+$('.detail_number').html()+"</span>\
+															<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
+														</p>\
+													</li>"
+											$('.car_goods ul').append(html);
+										}else{
+											$('.car_goods>ul>li').each(function(){
+												console.log(this);
+												var data_id = $(this).attr('data-id');
+												if(goods_uid == data_id){
+													var num = ($(this).find('.car_num').html() - 0) + ($('.detail_number').html() - 0);
+													$(this).find('.car_num').html(num);
+												}else{
+													var html = "<li data-id = '"+goods_uid+"'>\
+																	<img src='"+$('.big_Img').prop('src')+"' alt=''>\
+																	<p>\
+																		<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
+																		<span class='car_num'>"+$('.detail_number').html()+"</span>\
+																		<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
+																	</p>\
+																</li>"
+													$('.car_goods ul').append(html);
+													var all_n = 0;
+													var num_all = $('.detail_number').each(function(){
+														all_n += $(this).html();
+													})
+													console.log(all_n);
+												}
+											})
+										}
+										
+									})
+								})
+							
+						}else{
+							$('.goods_size').addClass('goods_size_error');
+						}
+						
+					})
 				})
 			}
+			// Detail.prototype.car_goods = template.compile(
+			// 	"")
 			Detail.prototype.aside = template.compile(
 				"<div class='right_aside'>\
+					<div class='car_goods'>\
+						<h3>购物车商品，请尽快结算</h3>\
+						<ul>\
+						</ul>\
+						<p class='goods_all'><span class='all_num'>0</span>件商品<em>¥580</em></p>\
+						<button class='pray'>去购物袋结算</button>\
+					</div>\
 					<div class='car_shopping'>\
-						<span class='car_text'>购物袋</span>\
+						<p class='car_text'>购物袋</p>\
 						<span class='car_num'>0</span>\
 					</div>\
 				</div>")
@@ -137,13 +244,13 @@ define(['jquery','template','top'],function($,template,top){
 								<tr>\
 									<td>运费</td><td>（订单满288免运费）</td>\
 								</tr>\
-								<tr>\
+								<tr class='goods_size'>\
 									<td>尺码</td>\
 									<td>\
-										<span class='choice_num'><input type='radio'> S</span>\
-										<span class='choice_num'><input type='radio'> M</span>\
-										<span class='choice_num'><input type='radio'> L</span>\
-										<span class='choice_num'><input type='radio'> XL</span>\
+										<span class='choice_num'><input type='radio' name='size' value='S'> S</span>\
+										<span class='choice_num'><input type='radio' name='size' value='M'> M</span>\
+										<span class='choice_num'><input type='radio' name='size' value='L'> L</span>\
+										<span class='choice_num'><input type='radio' name='size' value='XL'> XL</span>\
 									</td>\
 								</tr>\
 								<tr>\
@@ -169,9 +276,6 @@ define(['jquery','template','top'],function($,template,top){
 				var search2 = search1[1].split("&");
 				var search_type = search2[0];
 				var search_id = search1[2];
-				console.log(search_type)
-				console.log(search_id)
-
 				$.ajax({
 		            type:"GET",
 		            data:{

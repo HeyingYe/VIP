@@ -12,6 +12,7 @@
 .detail_wrap .right_choice .price { background: url(../img/bg.png) center center; margin-bottom: 10px; padding: 0px 5px 0px 20px; }
 .detail_wrap .right_choice .price .act_price { font-family: arial; font-size: 48px; color: #f43499; line-height: 1.2; }
 .detail_wrap .right_choice .price .rmb { color: #f43499; font-size: 20px; }
+.detail_wrap .right_choice .detail_msg .goods_size_error { border: 1px solid #f30b7f; background-color: #fdedf5; }
 .detail_wrap .right_choice .detail_msg tr { line-height: 60px; }
 .detail_wrap .right_choice .detail_msg tr td { height: 40px; padding: 0 10px; margin: 0 10px; }
 .detail_wrap .right_choice .detail_msg tr td .choice_num { display: inline-block; height: 26px; width: 52px; line-height: 26px; font-size: 14px; border: 1px solid #ccc; padding: 1px 10px; margin: 0px 10px 10px 0px; text-align: center; cursor: pointer; }
