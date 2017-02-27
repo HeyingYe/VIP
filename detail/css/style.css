@@ -14,10 +14,10 @@ body { min-width: 1000px; width: 100%; position: relative; }
 .right_aside .car_goods ul li { padding: 20px 0; border-bottom: 1px dotted #eaeaea; overflow: hidden; }
 .right_aside .car_goods ul li img { float: left; margin-right: 10px; width: 49px; height: 61px; }
 .right_aside .car_goods ul li p { float: right; width: 187px; height: 61px; overflow: hidden; }
-.right_aside .car_goods ul li p .car_text, .right_aside .car_goods ul li p .car_num, .right_aside .car_goods ul li p .car_good_price { display: block; height: 61px; float: left; line-height: 14px; width: 50px; font-size: 12px; text-align: center; color: #333; }
+.right_aside .car_goods ul li p .car_text, .right_aside .car_goods ul li p .car_number, .right_aside .car_goods ul li p .car_good_price { display: block; height: 61px; float: left; line-height: 14px; width: 50px; font-size: 12px; text-align: center; color: #333; }
 .right_aside .car_goods ul li p .car_text { text-overflow: ellipsis; white-space: pre-line; text-align: left; width: 70px; overflow: hidden; }
 .right_aside .car_goods ul li p .car_text:hover { color: #f10180; }
-.right_aside .car_goods ul li p .car_num { line-height: 60px; }
+.right_aside .car_goods ul li p .car_number { line-height: 60px; }
 .right_aside .car_goods ul li p .car_good_price { line-height: 60px; font-size: 14px; font-weight: 100; color: #f10180; }
 .right_aside .car_goods .goods_all { line-height: 18px; color: #333; text-align: center; padding: 6px 0 9px; }
 .right_aside .car_goods .goods_all em { font-size: 20px; margin-left: 20px; font-weight: 100; color: #f10180; }

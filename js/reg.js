@@ -189,8 +189,8 @@ define(['jquery','cookiebase'],function($,cookie){
 					var res = JSON.parse(res);
 					if(res.status == 200){
 						//注册成功
-						console.log('注册成功');
-						// location.assign();
+						// console.log('注册成功');
+						location.assign("http://localhost/VIP/login/index.html");
 					}else{
 						//注册失败
 						$('.reg_error').html('手机号码已注册，请更换，或立即登录')

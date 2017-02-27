@@ -1,16 +1,13 @@
-define(['jquery','template','top'],function($,template,top){
+define(['jquery','template','top','aside'],function($,template,top,aisde){
 	return {
 		init:function(){
 			//引入头部
 			top.init();
-			// $('body').load('../html/detail/detail.html',function(){
-
-			// })
+			//引入侧边栏
+			// var aside = new aside();
 
 			function Detail(){
 				var self = this;
-				var aside = this.aside();
-				$('body').append(aside);
 				this.ajax(function(res){
 					var data = {"data":JSON.parse(res)};
 					var detail = self.goods(data);
@@ -110,11 +107,15 @@ define(['jquery','template','top'],function($,template,top){
 							})
 						}
 					})
-					//点击购买商品的动画
+					
 					$('.buy').on('click',function(){
 						//必需选择尺码
 						var flag = $(':radio:checked');
 						if(flag[0] != undefined){
+							//发送数据到服务器
+							self.shopping_ajax(function(res){
+								console.log(res)
+							});
 							$('.goods_size').removeClass('goods_size_error');
 							var carPos;//购物车位置
 							//弹出购物袋
@@ -163,63 +164,54 @@ define(['jquery','template','top'],function($,template,top){
 														<img src='"+$('.big_Img').prop('src')+"' alt=''>\
 														<p>\
 															<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
-															<span class='car_num'>"+$('.detail_number').html()+"</span>\
+															<span class='car_number'>"+$('.detail_number').html()+"</span>\
 															<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
 														</p>\
 													</li>"
 											$('.car_goods ul').append(html);
 										}else{
 											$('.car_goods>ul>li').each(function(){
-												console.log(this);
+												// console.log(this);
 												var data_id = $(this).attr('data-id');
 												if(goods_uid == data_id){
-													var num = ($(this).find('.car_num').html() - 0) + ($('.detail_number').html() - 0);
-													$(this).find('.car_num').html(num);
+													var num = ($(this).find('.car_number').html() - 0) + ($('.detail_number').html() - 0);
+													$(this).find('.car_number').html(num);
 												}else{
 													var html = "<li data-id = '"+goods_uid+"'>\
 																	<img src='"+$('.big_Img').prop('src')+"' alt=''>\
 																	<p>\
 																		<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
-																		<span class='car_num'>"+$('.detail_number').html()+"</span>\
+																		<span class='car_number'>"+$('.detail_number').html()+"</span>\
 																		<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
 																	</p>\
 																</li>"
 													$('.car_goods ul').append(html);
-													var all_n = 0;
-													var num_all = $('.detail_number').each(function(){
-														all_n += $(this).html();
-													})
-													console.log(all_n);
 												}
 											})
 										}
-										
+										var all_n = 0;
+										var all_p = ($('.car_number').html() - 0) * ($('.act_price').html() - 0);
+										var sum_p = 0;
+										$('.car_number').each(function(){
+											all_n += ($(this).html() - 0);
+										})
+										console.log(all_n)
+										$('.car_good_price').html(all_p)
+										$('.all_num').html(all_n);
+										$('.car_good_price').each(function(){
+											sum_p += ($(this).html() - 0);
+										})
+										$('.goods_all em').html("¥"+sum_p);
 									})
 								})
 							
 						}else{
 							$('.goods_size').addClass('goods_size_error');
-						}
-						
+						}					
 					})
 				})
 			}
-			// Detail.prototype.car_goods = template.compile(
-			// 	"")
-			Detail.prototype.aside = template.compile(
-				"<div class='right_aside'>\
-					<div class='car_goods'>\
-						<h3>购物车商品，请尽快结算</h3>\
-						<ul>\
-						</ul>\
-						<p class='goods_all'><span class='all_num'>0</span>件商品<em>¥580</em></p>\
-						<button class='pray'>去购物袋结算</button>\
-					</div>\
-					<div class='car_shopping'>\
-						<p class='car_text'>购物袋</p>\
-						<span class='car_num'>0</span>\
-					</div>\
-				</div>")
+			
 			Detail.prototype.goods = template.compile(
 				"{{each data as value index}}\
 					<div class='detail_wrap'>\
@@ -299,7 +291,56 @@ define(['jquery','template','top'],function($,template,top){
 		            dataType:"jsonp"
        				})
 			}
+			Detail.prototype.shopping_ajax = function(callback){
+				var shopping_num = $('.detail_number').html();
+				var search1 = location.search.split("=");
+				var search2 = search1[1].split("&");
+				var search_type = search2[0];
+				var search_id = search1[2];
+				//female31
+				var username = $('.username').html();
+				var size = $(':radio:checked').prop('value');
+				// console.log(username);
+				var gid = search_type +'&'+ search_id +'&'+ shopping_num ;
+				$.ajax({
+		            type:"GET",
+		            data:{
+		            	username:username,
+		            	gid:gid,
+		            },
+		            url:"../php/shopping.php",
+		            success:function(res){
+		                if(callback){
+		                    callback(res);
+		                }else{
+		                    console.log(res); 
+		                }
+		            },
+		            complete:function(){
+		            	console.log("正在请求")
+		            },
+		            error:function(){
+		                console.log(arguments);
+		            }
+				})
+			}
 			var detail = new Detail();
+			// Detail.prototype.car_goods = template.compile(
+			// 	"")
+			// Detail.prototype.aside = template.compile(
+			// 	"<div class='right_aside'>\
+			// 		<div class='car_goods'>\
+			// 			<h3>购物车商品，请尽快结算</h3>\
+			// 			<ul>\
+			// 			</ul>\
+			// 			<p class='goods_all'><span class='all_num'>0</span>件商品<em>¥580</em></p>\
+			// 			<button class='pray'>去购物袋结算</button>\
+			// 		</div>\
+			// 		<div class='car_shopping'>\
+			// 			<p class='car_text'>购物袋</p>\
+			// 			<span class='car_num'>0</span>\
+			// 		</div>\
+			// 	</div>")
 		}
 	}
 })

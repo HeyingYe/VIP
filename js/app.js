@@ -8,7 +8,8 @@ require.config({
 		'banner':['jquery'],
 		'floor':['jquery','template'],
 		'list':['jquery','top','template'],
-		'detail':['jquery','template']
+		'detail':['jquery','template'],
+		'aside':['jquery','template']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -21,7 +22,8 @@ require.config({
 		'banner':'./index/banner',
 		'floor':'./index/floor',
 		'list':'list',
-		'detail':'detail'
+		'detail':'detail',
+		'aside':'aside'
 	}
 })
 require(['jquery','reg','login','index','list','detail'],function($,reg,login,index,list,detail){
