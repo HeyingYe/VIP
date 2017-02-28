@@ -30,7 +30,7 @@ define(['jquery','top','template'],function($,top,template){
 						var type = location.search;
 						var goodsId = $(this).attr('data-id');
 						var search =type + "&id=" + goodsId;
-						var href = 'http://localhost/VIP/detail/index.html' + search;
+						var href = 'http://10.3.135.48/VIP/detail/index.html' + search;
 						$(this).find('a').attr('href',href);
 						location.assign(href);
 					})

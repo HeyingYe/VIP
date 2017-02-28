@@ -128,25 +128,28 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 									// console.log($currentImg.height())
 									//获取图片原来的位置
 									var startPos = $('.buy').offset();
-									var startWidth = $currentImg.width();
-									var startHeight = $currentImg.height();
+									// console.log(startPos);
+									// var startWidth = $currentImg.width();
+									// var startHeight = $currentImg.height();
 									// console.log($('.img_box').width())
+									//将复制的图片插入
+									$copyImg.appendTo('body');
 									//设置复制图片的位置
 									$copyImg.css({
 										position:'absolute',
 										left:startPos.left ,
 										top:startPos.top ,
-										width:startWidth,
-										height:startHeight,
+										width:49,
+										height:61,
 										'z-index':1111111,
 									})
-									//将复制的图片插入
-									$copyImg.appendTo('body');
+									
+									
 									//获取购物车位置
 									var carPos = $('.car_goods').offset();
 									$copyImg.animate({
 										left:carPos.left,
-										top:carPos.top,
+										top:carPos.top + 50,
 										width:0,
 										height:0,
 										opacity:0
@@ -158,7 +161,8 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 										var goods = location.search.split("=");
 										var goods_type = (goods[1].split("&"))[0];
 										var goods_id = goods[2];
-										var goods_uid = goods_type + goods_id;
+										var size = $(':radio:checked').prop('value');
+										var goods_uid = goods_type +"&"+ goods_id +"&"+size;
 										if(goods_list[0] == undefined){
 											var html = "<li data-id = '"+goods_uid+"'>\
 														<img src='"+$('.big_Img').prop('src')+"' alt=''>\

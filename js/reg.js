@@ -190,7 +190,7 @@ define(['jquery','cookiebase'],function($,cookie){
 					if(res.status == 200){
 						//注册成功
 						// console.log('注册成功');
-						location.assign("http://localhost/VIP/login/index.html");
+						location.assign("http://10.3.135.48/VIP/index/index.html");
 					}else{
 						//注册失败
 						$('.reg_error').html('手机号码已注册，请更换，或立即登录')

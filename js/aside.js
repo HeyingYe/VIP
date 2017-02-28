@@ -1,7 +1,14 @@
-define(['jquery','template'],function($,template){
+define(['jquery','template','cookiebase'],function($,template,cookie){
 	function Aside(){
 		var aside = this.aside();
 		$('body').append(aside);
+		//动态渲染右侧栏数据
+		this.ajax(function(res){
+			// console.log(res);
+			console.log(JSON.parse(res));
+			var data = {"data":JSON.parse(res)};
+			var aside = self.aside(data);
+		})
 	}
 	Aside.prototype.aside = template.compile(
 		"<div class='right_aside'>\
@@ -9,7 +16,7 @@ define(['jquery','template'],function($,template){
 						<h3>购物车商品，请尽快结算</h3>\
 						<ul>\
 						</ul>\
-						<p class='goods_all'><span class='all_num'>0</span>件商品<em>¥580</em></p>\
+						<p class='goods_all'><span class='all_num'>0</span>件商品<em></em></p>\
 						<button class='pray'>去购物袋结算</button>\
 					</div>\
 					<div class='car_shopping'>\
@@ -17,17 +24,35 @@ define(['jquery','template'],function($,template){
 						<span class='car_num'>0</span>\
 					</div>\
 				</div>");
-	Aside.prototype.ajax = function(){
+	var 
+	Aside.prototype.car_goods = template.compile(
+		"{{each data as value index}}\
+			<li data-id = '{{value.list}}'>\
+				<img src='{{value.src}}' alt=''>\
+				<p>\
+					<span class='car_text'>{{value.name}}</span>\
+					<span class='car_number'>{{value.num}}</span>\
+					<span class='car_good_price'>¥<span class='g_price'>{{value.price}}</span></span>\
+				</p>\
+			</li>\
+		{{/each}}");
+	Aside.prototype.ajax = function(callback){
+		var sCookie = getCookie('user');
+		var aUser = sCookie?JSON.parse(sCookie):[];
+		var username = aUser[aUser.length - 1].phone;;
+		// console.log(username);
 		$.ajax({
             type:"GET",
-            url:"../php/index/top_menu.php",
+            url:"../php/aside.php",
+            data:{
+            	username:username
+            },
             success:function(res){
                 if(callback){
                     callback(res);
                 }else{
                     console.log(res); 
-                }
-               
+                }             
             },
             complete:function(){
             	console.log("正在请求")
