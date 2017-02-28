@@ -114,7 +114,7 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 						if(flag[0] != undefined){
 							//发送数据到服务器
 							self.shopping_ajax(function(res){
-								console.log(res)
+								// console.log(res)
 							});
 							$('.goods_size').removeClass('goods_size_error');
 							var carPos;//购物车位置
@@ -156,43 +156,64 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 									},1000,function(){
 										$copyImg.remove();
 										//加入购物车
-										var goods_list = $('.car_goods>ul>li');
-										// console.log(goods_list[0] == undefined)
-										var goods = location.search.split("=");
-										var goods_type = (goods[1].split("&"))[0];
-										var goods_id = goods[2];
-										var size = $(':radio:checked').prop('value');
-										var goods_uid = goods_type +"&"+ goods_id +"&"+size;
-										if(goods_list[0] == undefined){
-											var html = "<li data-id = '"+goods_uid+"'>\
-														<img src='"+$('.big_Img').prop('src')+"' alt=''>\
-														<p>\
-															<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
-															<span class='car_number'>"+$('.detail_number').html()+"</span>\
-															<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
-														</p>\
-													</li>"
-											$('.car_goods ul').append(html);
-										}else{
-											$('.car_goods>ul>li').each(function(){
-												// console.log(this);
-												var data_id = $(this).attr('data-id');
-												if(goods_uid == data_id){
-													var num = ($(this).find('.car_number').html() - 0) + ($('.detail_number').html() - 0);
-													$(this).find('.car_number').html(num);
-												}else{
-													var html = "<li data-id = '"+goods_uid+"'>\
-																	<img src='"+$('.big_Img').prop('src')+"' alt=''>\
-																	<p>\
-																		<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
-																		<span class='car_number'>"+$('.detail_number').html()+"</span>\
-																		<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
-																	</p>\
-																</li>"
-													$('.car_goods ul').append(html);
-												}
+										// var goods_list = $('.car_goods>ul>li');
+										// // console.log(goods_list[0] == undefined)
+										// var goods = location.search.split("=");
+										// var goods_type = (goods[1].split("&"))[0];
+										// var goods_id = goods[2];
+										// var size = $(':radio:checked').prop('value');
+										// var goods_uid = goods_type +"&"+ goods_id +"&"+size;
+										// if(goods_list[0] == undefined){
+										// 	var html = "<li data-id = '"+goods_uid+"'>\
+										// 				<img src='"+$('.big_Img').prop('src')+"' alt=''>\
+										// 				<p>\
+										// 					<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
+										// 					<span class='car_number'>"+$('.detail_number').html()+"</span>\
+										// 					<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
+										// 				</p>\
+										// 			</li>"
+										// 	$('.car_goods ul').append(html);
+										// }else{
+										// 	$('.car_goods>ul>li').each(function(){
+										// 		// console.log(this);
+										// 		var data_id = $(this).attr('data-id');
+										// 		if(goods_uid == data_id){
+										// 			var num = ($(this).find('.car_number').html() - 0) + ($('.detail_number').html() - 0);
+										// 			$(this).find('.car_number').html(num);
+										// 		}else{
+										// 			var html = "<li data-id = '"+goods_uid+"'>\
+										// 							<img src='"+$('.big_Img').prop('src')+"' alt=''>\
+										// 							<p>\
+										// 								<span class='car_text'>"+$('.right_choice h3').html()+"</span>\
+										// 								<span class='car_number'>"+$('.detail_number').html()+"</span>\
+										// 								<span class='car_good_price'>¥<span class='g_price'>"+$('.act_price').html()+"</span></span>\
+										// 							</p>\
+										// 						</li>"
+										// 			$('.car_goods ul').append(html);
+										// 		}
+										// 	})
+										// }
+										//移除原来的模版
+										$('.car_goods>ul>li').remove();
+										//重新渲染购物车模块
+										self.aside_ajax(function(res){
+											var data = {"data":JSON.parse(res)};
+											var aside = self.car_goods(data);
+											$('.car_goods>ul').append(aside);
+												//计算
+											var all_n = 0;//总数量
+											var sum_p = 0;//总价格
+											$('.car_number').each(function(){
+												all_n += ($(this).html() - 0);
 											})
-										}
+											$('.all_num').html(all_n);
+
+											$('.car_good_price').each(function(){
+												sum_p += ($(this).find('.g_price').html() - 0);
+											})
+											$('.goods_all em').html("¥"+sum_p);
+										})
+										//计算功能
 										var all_n = 0;
 										var all_p = ($('.car_number').html() - 0) * ($('.act_price').html() - 0);
 										var sum_p = 0;
@@ -215,7 +236,17 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 					})
 				})
 			}
-			
+			Detail.prototype.car_goods = template.compile(
+				"{{each data as value index}}\
+					<li data-id = '{{value.list}}'>\
+						<img src='{{value.src}}' alt=''>\
+						<p>\
+							<span class='car_text'>{{value.name}}</span>\
+							<span class='car_number'>{{value.num}}</span>\
+							<span class='car_good_price'>¥<span class='g_price'>{{value.price}}</span></span>\
+						</p>\
+					</li>\
+				{{/each}}");
 			Detail.prototype.goods = template.compile(
 				"{{each data as value index}}\
 					<div class='detail_wrap'>\
@@ -267,6 +298,32 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 						</div>\
 					</div>\
 				{{/each}}")
+			Detail.prototype.aside_ajax = function(callback){
+				var sCookie = getCookie('user');
+				var aUser = sCookie?JSON.parse(sCookie):[];
+				var username = aUser[aUser.length - 1].phone;;
+				$.ajax({
+		            type:"GET",
+		            url:"../php/aside.php",
+		            data:{
+		            	username:username
+		            },
+		            success:function(res){
+		                if(callback){
+		                    callback(res);
+		                }else{
+		                    console.log(res); 
+		                }             
+		            },
+		            complete:function(){
+		            	console.log("正在请求")
+		            },
+		            error:function(){
+		                console.log(arguments);
+		            },
+		            dataType:"jsonp"
+				})
+			}
 			Detail.prototype.ajax = function(callback){
 				var search1 = location.search.split("=");
 				var search2 = search1[1].split("&");

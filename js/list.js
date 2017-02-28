@@ -1,8 +1,10 @@
-define(['jquery','top','template'],function($,top,template){
+define(['jquery','top','template','aside'],function($,top,template,Aside){
 	return {
 		init:function(){
 			//引入头部
 			top.init();
+			//引入侧边栏
+			var aside = new Aside();
 			$('.choose').load('../html/list/list.html',function(){
 
 			})

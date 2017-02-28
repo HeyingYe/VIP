@@ -5,16 +5,17 @@
     $con->query("set names utf8"); //设置编码为utf8 显示中文
     $sql = 'select * from users';
     $res = $con->query($sql);
+    $arr = array();
     if(!$con->connect_error){
          if($res->num_rows > 0){         
                 $sql = "select * from users where username = '$username'";
                 // $sql = 'select * from users where username = "$username"';//不能外面单引号里面双引号的
-
                 if($res = $con->query($sql)){
                     //找到用户信息，判断用户购物车是否存在商品
-                    if($row = $res->fetch_assoc()){             
+                    if($row = $res->fetch_assoc()){   
+                              // print_r(111);
                         //逐行查找,一般只有一条对应的用户信息
-                        if( $row['gid'] =="" ){
+                        if( $row['gid'] == "" ){
                              //空购物车
                             $things = array($gid);
                             // print_r($things);
@@ -35,23 +36,50 @@
                                 $arr = $con->error;
                                 $arr = array("status"=>302,"msg"=>"空购物车信息添加失败");
                             }
+                            // print_r("111");
                         }else{
-                             //提取信息,转换为数组
+                            var_dump($row['gid']);
+                             //提取信息,转换为数组//female&3&3&S
                             $things = json_decode($row['gid'],true);
-                            //添加新的购买商品
-                            array_push($things,$gid);
-                            //将数组转换为字符串
-                            print_r($things);
-                            $things = json_encode($things);
-                            //写入数据库
-                            // $sql = 'update users set gid = "$things" where username = "'.$buy->username.'"';
-                           $sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
-                            // $arr = $sql;
-                            if($con->query($sql)){
-                                $arr = array("status"=>200,"msg"=>"购买信息添加成功");
-                             }else{
-                                $arr = array("status"=>301,"msg"=>"购物车信息添加失败");
-                             }
+                            var_dump($things);
+                            var_dump(count($things));
+                            for($i=0;$i<count($things);$i++){
+                                print_r(count($things));
+                                print_r($things[2]);
+                                if($gid == $things[$i]){
+                                    //存在相同的商品，合并，数量相加
+                                    $send_gid = explode('&', $gid);
+                                    $data_gid = explode('&', $things[$i]);
+                                    $all_num = $send_gid[2] + $data_gid[2];
+                                    $end_gid = $send_gid[0] + $send_gid[1] + $all_num;
+                                    //删除原来的，在添加
+                                    unset($things[$i]);
+                                    array_push($things,$end_gid);
+                                    $things = json_encode($things);
+                                    $sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
+                                    // $arr = $sql;
+                                    if($con->query($sql)){
+                                        $arr = array("status"=>200,"msg"=>"购买信息添加成功");
+                                     }else{
+                                        $arr = array("status"=>301,"msg"=>"购物车信息添加失败");
+                                     }
+                                }else{
+                                    //添加新的购买商品
+                                    array_push($things,$gid);
+                                    //将数组转换为字符串
+                                    // print_r($things);
+                                    $things = json_encode($things);
+                                    //写入数据库
+                                    // $sql = 'update users set gid = "$things" where username = "'.$buy->username.'"';
+                                   $sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
+                                    // $arr = $sql;
+                                    if($con->query($sql)){
+                                        $arr = array("status"=>200,"msg"=>"购买信息添加成功");
+                                     }else{
+                                        $arr = array("status"=>301,"msg"=>"购物车信息添加失败");
+                                     }
+                                }
+                            }
                         }
                     }else{
                         $arr = array("status"=>400,"msg"=>"查找不到信息");

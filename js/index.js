@@ -1,4 +1,4 @@
-define(['jquery','cookiebase','top','banner','floor'],function($,cookie,top,banner,floor){
+define(['jquery','cookiebase','top','banner','floor','aside'],function($,cookie,top,banner,floor,Aside){
 
 	return {
 		init:function(){
@@ -27,6 +27,8 @@ define(['jquery','cookiebase','top','banner','floor'],function($,cookie,top,bann
 			banner.init();
 			//引入楼层
 			floor.init();
+			//引入侧边栏
+			var aside =new Aside();
 		}
 	}
 })

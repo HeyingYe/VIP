@@ -92,7 +92,7 @@ define(['jquery','cookiebase','template'],function($,cookie,template){
 					"<ul class='menu_left'>\
 						{{each data as value index}}\
 							{{if index == 0}}\
-								<li><a href='' class='menu_active menu_left_a '>{{value.name}}</a></li>\
+								<li><a href='http://10.3.135.48/VIP/index/index.html' class='menu_active menu_left_a '>{{value.name}}</a></li>\
 								{{else if index == 8}}\
 								<li class='menu_more'><a href='' class='menu_left_a'>{{value.name}}</a></li>\
 								{{else}}\
