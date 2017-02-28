@@ -1,0 +1,3 @@
+@import url(./reset.css);
+#footer { width: 1000px; margin: 50px auto; height: 400px; }
+#footer img { width: 100%; height: 100%; }

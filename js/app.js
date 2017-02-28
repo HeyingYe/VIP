@@ -9,7 +9,8 @@ require.config({
 		'floor':['jquery','template'],
 		'list':['jquery','top','template'],
 		'detail':['jquery','template'],
-		'aside':['jquery','template']
+		'aside':['jquery','template'],
+		'car':['jquery','template']
 	},
 	paths:{
 		'jquery':'jquery-1.12.3',
@@ -23,10 +24,11 @@ require.config({
 		'floor':'./index/floor',
 		'list':'list',
 		'detail':'detail',
-		'aside':'aside'
+		'aside':'aside',
+		'car':'car'
 	}
 })
-require(['jquery','reg','login','index','list','detail'],function($,reg,login,index,list,detail){
+require(['jquery','reg','login','index','list','detail','car'],function($,reg,login,index,list,detail,car){
 	var path = location.pathname;
 	console.log(path)
 	if(path == "/VIP/reg/index.html"){
@@ -39,6 +41,8 @@ require(['jquery','reg','login','index','list','detail'],function($,reg,login,in
 		list.init();
 	}else if(path == "/VIP/detail/index.html"){
 		detail.init();
+	}else if(path == "/VIP/car/index.html"){
+		car.init();
 	}
 	else{
 

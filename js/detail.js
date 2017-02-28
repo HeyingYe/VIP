@@ -1,10 +1,10 @@
-define(['jquery','template','top','aside'],function($,template,top,aisde){
+define(['jquery','template','top','aside'],function($,template,top,Aside){
 	return {
 		init:function(){
 			//引入头部
 			top.init();
 			//引入侧边栏
-			// var aside = new aside();
+			var aside = new Aside();
 
 			function Detail(){
 				var self = this;
@@ -195,7 +195,7 @@ define(['jquery','template','top','aside'],function($,template,top,aisde){
 										$('.car_number').each(function(){
 											all_n += ($(this).html() - 0);
 										})
-										console.log(all_n)
+										// console.log(all_n)
 										$('.car_good_price').html(all_p)
 										$('.all_num').html(all_n);
 										$('.car_good_price').each(function(){
@@ -301,7 +301,9 @@ define(['jquery','template','top','aside'],function($,template,top,aisde){
 				var username = $('.username').html();
 				var size = $(':radio:checked').prop('value');
 				// console.log(username);
-				var gid = search_type +'&'+ search_id +'&'+ shopping_num ;
+				var gid = search_type +'&'+ search_id +'&'+ shopping_num +'&' + size;
+				// var arr = [];
+				// arr.push(gid);
 				$.ajax({
 		            type:"GET",
 		            data:{

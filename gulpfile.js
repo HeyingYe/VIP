@@ -92,6 +92,13 @@ gulp.task("detailMail",function(){
             style:"compact"
         }).pipe(gulp.dest("./detail/css"))
 })
+//监听car
+gulp.task("carStyle",function(){
+        sass("./car/sass/style.scss",{
+            style:"compact"
+        }).pipe(gulp.dest("./car/css"))
+})
+
 gulp.task("watch",function(){
     connect.server({
         livereload:true
@@ -110,5 +117,6 @@ gulp.task("watch",function(){
     // gulp.watch("./list/sass/choose.scss",["chooseStyle"])
     gulp.watch("./detail/sass/style.scss",["detailStyle"])
     gulp.watch("./detail/sass/main.scss",["detailMail"])
+    gulp.watch("./car/sass/style.scss",["carStyle"])
 })
 

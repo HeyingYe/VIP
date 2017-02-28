@@ -108,7 +108,7 @@ define(['jquery','cookiebase'],function($,cookie){
 					if(res.status == 200){
 						//登录成功
 						// console.log("登录成功")
-						location.assign("http://localhost/VIP/login/index.html")
+						location.assign("http://localhost/VIP/index/index.html")
 					}else{
 						$('.psw_error').html('登录名或密码错误').css({
 							'opacity':1,
