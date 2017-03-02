@@ -14,10 +14,17 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 					$('#main').append(detail);
 					//绑定事件
 					$('.little_img').on("click",'img',function(){
+						// console.log(11);
 						var src = $(this).prop('src');
+						// console.log(src)
+						// console.log($('.img_box'))
+						// console.log($('.img_box').prop("style").background)
+						// console.log('url(' + src + ') center;background-size:cover')
 						$('.img_box').css({
-							background:'url(' + src + ') center;background-size:cover'
+							background:'url(' + src + ') center',
+							'background-size':'cover'
 						});
+						// console.log($('.img_box').prop("style").background)
 						$('.big_Img').prop('src',src);
 					})
 					//加减商品数量

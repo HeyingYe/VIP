@@ -18,7 +18,7 @@ var rename =  require("gulp-rename"); //重命名文件
 
 var uglify =  require("gulp-uglify") ;//压缩js
 
-
+var cssmin = require('gulp-minify-css');
 //给gulp安排任务 gulp都是以任务的形式进行工作的
 //task 第一个参数 任务名称 
 //第二个参数当前任务要干的事情
@@ -28,16 +28,19 @@ gulp.task("comCss",function(){
         }).pipe(gulp.dest("./login/css"))
 })
 
+//压缩css样式
+gulp.task('indexCssmin',function(){
+    gulp.src("./index/css/*.css").pipe(cssmin()).pipe(concat('index.min.css')).pipe(gulp.dest('./index/css/'))
+})
 //给gulp添加livereload的功能
-
 gulp.task("refalseHTML",function(){
    // console.log('dddd');
     gulp.src("./*.html").pipe( connect.reload() )
 })
 
-gulp.task('js',function(){
+gulp.task('uglifyjs',function(){
     // gulp.src('./js/index.js').pipe(uglify()).pipe(rename("index.min.js")).pipe(gulp.dest('dest'))
-    gulp.src('./js/*.js').pipe(uglify()).pipe(concat("demo.min.js")).pipe(gulp.dest('dest'));
+    gulp.src('./js/*.js').pipe(uglify()).pipe(concat("VIP.min.js")).pipe(gulp.dest('vip'));
 })
 //监听css的改变 刷新页面
 gulp.task('css',function(){

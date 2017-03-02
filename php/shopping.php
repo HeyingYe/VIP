@@ -38,47 +38,16 @@
                             }
                             // print_r("111");
                         }else{
-                            var_dump($row['gid']);
                              //提取信息,转换为数组//female&3&3&S
                             $things = json_decode($row['gid'],true);
-                            var_dump($things);
-                            var_dump(count($things));
-                            for($i=0;$i<count($things);$i++){
-                                print_r(count($things));
-                                print_r($things[2]);
-                                if($gid == $things[$i]){
-                                    //存在相同的商品，合并，数量相加
-                                    $send_gid = explode('&', $gid);
-                                    $data_gid = explode('&', $things[$i]);
-                                    $all_num = $send_gid[2] + $data_gid[2];
-                                    $end_gid = $send_gid[0] + $send_gid[1] + $all_num;
-                                    //删除原来的，在添加
-                                    unset($things[$i]);
-                                    array_push($things,$end_gid);
-                                    $things = json_encode($things);
-                                    $sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
-                                    // $arr = $sql;
-                                    if($con->query($sql)){
-                                        $arr = array("status"=>200,"msg"=>"购买信息添加成功");
-                                     }else{
-                                        $arr = array("status"=>301,"msg"=>"购物车信息添加失败");
-                                     }
-                                }else{
-                                    //添加新的购买商品
-                                    array_push($things,$gid);
-                                    //将数组转换为字符串
-                                    // print_r($things);
-                                    $things = json_encode($things);
-                                    //写入数据库
-                                    // $sql = 'update users set gid = "$things" where username = "'.$buy->username.'"';
-                                   $sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
-                                    // $arr = $sql;
-                                    if($con->query($sql)){
-                                        $arr = array("status"=>200,"msg"=>"购买信息添加成功");
-                                     }else{
-                                        $arr = array("status"=>301,"msg"=>"购物车信息添加失败");
-                                     }
-                                }
+                          	array_push($things,$gid);
+                          	$things = json_encode($things);
+                          	$sql = "UPDATE  users SET  gid =  '$things' WHERE  username = '$username'";
+                          	 if($con->query($sql)){
+                                $arr = array("status"=>200,"msg"=>"空购物车信息添加成功");
+                            }else{
+                                $arr = $con->error;
+                                $arr = array("status"=>302,"msg"=>"空购物车信息添加失败");
                             }
                         }
                     }else{
@@ -95,25 +64,10 @@
             }else{              
                  $arr = array("status"=>500,"msg"=>"没有用户信息");
             }         
-                // while($row = $res->fetch_assoc()){
-                //     $goods = new Goods();
-                //     $goods->goodsId = $row["uid"];
-                //     $goods->goodsName = $row["name"];
-                //     $goods->goodsPrice = $row["price"];
-                //     $goods->goodsImg = $row["src"];
-                //     $goods->goodss1 = $row["s1"];
-                //     $goods->goodss2 = $row["s2"];
-                //     array_push($arr, $goods);
-                // }
-
-                //返回json字符串  
-            // }else {
-            //     array_push($arr, "没有该用户信息");
-            // }
+             
     }else{
         $arr = array("status"=>600,"msg"=>"连接数据库失败");
     }
-
     print_r(json_encode($arr));
     
         // //判断是否是jsonp的请求
@@ -129,10 +83,6 @@
         //     array_push($arr, "连接数据库失败");
         //     $str = json_encode($arr);
         //     print_r( $str );
-
         // }
-
-
   //  print_r($str)
-
  ?>

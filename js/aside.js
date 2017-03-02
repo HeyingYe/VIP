@@ -15,7 +15,6 @@ define(['jquery','template','cookiebase'],function($,template,cookie){
 				self.bind();
 				$('.car_num').html($('.all_num').html());
 			}
-			
 		})
 	}
 	Aside.prototype.aside = template.compile(
