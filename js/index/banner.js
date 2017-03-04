@@ -15,7 +15,7 @@ define(['jquery'],function($){
 				Carousel.prototype.play = function(eles,line){
 					this.index++;
 					this.index = this.index % eles.length;
-					$('.banner_pic').eq(this.index%3).stop().animate({opacity:1},1000)
+					$('.banner_pic').eq(this.index % eles.length).stop().animate({opacity:1},1000)
 					 .siblings('li').stop().animate({'opacity':0},1000);
 					 var offLeft = this.index * $(line).width();
 					$(line).animate({

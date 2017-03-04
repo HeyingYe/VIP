@@ -1,17 +1,17 @@
 require.config({
 	// baseUrl:"../js",
-	shim:{
-		'reg':['jquery','cookiebase'],
-		'login':['jquery','cookiebase'],
-		'index':['jquery','cookiebase','top','floor'],
-		'top':['jquery','cookiebase','template'],
-		'banner':['jquery'],
-		'floor':['jquery','template'],
-		'list':['jquery','top','template'],
-		'detail':['jquery','template'],
-		'aside':['jquery','template'],
-		'car':['jquery','template']
-	},
+	// shim:{
+	// 	'reg':['jquery','cookiebase'],
+	// 	'login':['jquery','cookiebase'],
+	// 	'index':['jquery','cookiebase','top','floor'],
+	// 	'top':['jquery','cookiebase','template'],
+	// 	'banner':['jquery'],
+	// 	'floor':['jquery','template'],
+	// 	'list':['jquery','top','template'],
+	// 	'detail':['jquery','template'],
+	// 	'aside':['jquery','template'],
+	// 	'car':['jquery','template']
+	// },
 	paths:{
 		'jquery':'jquery-1.12.3',
 		'template':'template',

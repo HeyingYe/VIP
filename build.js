@@ -1,0 +1,20 @@
+({
+	baseUrl:"js",
+	name:"app",
+	paths:{
+		'jquery':'jquery-1.12.3',
+		'template':'template',
+		'cookiebase':'cookiebase',
+		'reg':'reg',
+		'login':'login',
+		'index':'index',
+		'top':'./index/top',
+		'banner':'./index/banner',
+		'floor':'./index/floor',
+		'list':'list',
+		'detail':'detail',
+		'aside':'aside',
+		'car':'car'
+	},
+	out:"built.js"
+})
