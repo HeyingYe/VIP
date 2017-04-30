@@ -24,11 +24,11 @@ require.config({
 		'floor':'./index/floor',
 		'list':'list',
 		'detail':'detail',
-		'aside':'aside',
-		'car':'car'
+		'aside':'aside'
+		
 	}
 })
-require(['jquery','reg','login','index','list','detail','car'],function($,reg,login,index,list,detail,car){
+require(['jquery','reg','login','index','list','detail'],function($,reg,login,index,list,detail){
 	var path = location.pathname;
 	console.log(path)
 	if(path == "/VIP/reg/index.html"){

@@ -166,6 +166,7 @@ define(['jquery','cookiebase'],function($,cookie){
 			//获取cookie
 			var sCookie	= getCookie("user");
 			var aUser = sCookie?JSON.parse(sCookie):[];
+			console.log(aUser)
 			//[{phone:999,psw:999}]
 			//遍历cookie，判断是否已存在cookie中
 			var flag = false;//假设不存在
@@ -190,14 +191,14 @@ define(['jquery','cookiebase'],function($,cookie){
 					if(res.status == 200){
 						//注册成功
 						// console.log('注册成功');
-						location.assign("http://10.3.135.48/VIP/index/index.html");
+						location.assign("http://localhost/VIP/index/index.html");
 					}else{
 						//注册失败
 						$('.reg_error').html('手机号码已注册，请更换，或立即登录')
-											.animate({
-												opacity:1,
-												top:15,						
-											})
+										.animate({
+											opacity:1,
+											top:15,						
+										})
 						$('.phone_Num').css({
 							'background':'#ffe6e7',
 							'border-color':'#fca1a5',

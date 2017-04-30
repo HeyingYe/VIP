@@ -1,0 +1,12 @@
+INSERT INTO `female` VALUES (1, '../list/img/female/1.jpg', '蓝色七分袖连衣裙3', 666, 0, '../list/img/female/1.1.jpg', '../list/img/female/1.2.jpg');
+INSERT INTO `female` VALUES (2, '../list/img/female/2.jpg', '蓝色七分袖连衣裙4', 555, 0, '../list/img/female/2.1.jpg', '../list/img/female/2.2.jpg');
+INSERT INTO `female` VALUES (3, '../list/img/female/3.jpg', '蓝色七分袖连衣裙5', 333, 1, '../list/img/female/3.1.jpg', '../list/img/female/3.2.jpg');
+INSERT INTO `female` VALUES (4, '../list/img/female/4.jpg', '蓝色七分袖连衣裙6', 777, 1, '../list/img/female/4.2.jpg', '../list/img/female/4.1.jpg');
+INSERT INTO `female` VALUES (5, '../list/img/female/5.jpg', '蓝色七分袖连衣裙7', 999, 0, '../list/img/female/5.1.jpg', '../list/img/female/5.2.jpg');
+INSERT INTO `female` VALUES (6, '../list/img/female/6.jpg', '蓝色七分袖连衣裙8', 888, 0, '../list/img/female/6.1.jpg', '../list/img/female/6.2.jpg');
+INSERT INTO `female` VALUES (7, '../list/img/female/7.jpg', '蓝色七分袖连衣裙9', 999, 0, '../list/img/female/7.1.jpg', '../list/img/female/7.2.jpg');
+INSERT INTO `female` VALUES (8, '../list/img/female/8.jpg', '蓝色七分袖连衣裙10', 1111, 0, '../list/img/female/8.1.jpg', '../list/img/female/8.2.jpg');
+INSERT INTO `female` VALUES (9, '../list/img/female/9.jpg', '蓝色七分袖连衣裙11', 777, 0, '../list/img/female/9.1.jpg', '../list/img/female/9.2.jpg');
+INSERT INTO `female` VALUES (10, '../list/img/female/10.jpg', '蓝色七分袖连衣裙12', 1222, 0, '../list/img/female/10.1.jpg', '../list/img/female/10.2.jpg');
+INSERT INTO `female` VALUES (11, '../list/img/female/2.jpg', '蓝色七分袖连衣裙12', 2333, 0, '../list/img/female/2.jpg', '../list/img/female/2.jpg');
+INSERT INTO `female` VALUES (12, '../list/img/female/2.jpg', '蓝色七分袖连衣裙12', 1333, 0, '../list/img/female/2.jpg', '../list/img/female/2.jpg');

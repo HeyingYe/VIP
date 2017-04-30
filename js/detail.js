@@ -308,7 +308,12 @@ define(['jquery','template','top','aside'],function($,template,top,Aside){
 			Detail.prototype.aside_ajax = function(callback){
 				var sCookie = getCookie('user');
 				var aUser = sCookie?JSON.parse(sCookie):[];
-				var username = aUser[aUser.length - 1].phone;;
+				console.log(document.cookie);
+				var username;
+				if(aUser.length > 0){
+					username = aUser[aUser.length - 1].phone;
+				}
+				console.log(username)
 				$.ajax({
 		            type:"GET",
 		            url:"../php/aside.php",

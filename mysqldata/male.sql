@@ -1,0 +1,12 @@
+INSERT INTO `male` VALUES (1, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 998, '../list/img/male/1.jpg', '../list/img/male/1.1.jpg', '../list/img/male/1.2.jpg');
+INSERT INTO `male` VALUES (2, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 556, '../list/img/male/2.jpg', '../list/img/male/2.1.jpg', '../list/img/male/2.2.jpg');
+INSERT INTO `male` VALUES (3, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 789, '../list/img/male/3.jpg', '../list/img/male/3.1.jpg', '../list/img/male/3.2.jpg');
+INSERT INTO `male` VALUES (4, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 533, '../list/img/male/4.jpg', '../list/img/male/4.1.jpg', '../list/img/male/4.2.jpg');
+INSERT INTO `male` VALUES (5, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 775, '../list/img/male/5.jpg', '../list/img/male/5.1.jpg', '../list/img/male/5.2.jpg');
+INSERT INTO `male` VALUES (6, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 654, '../list/img/male/6.jpg', '../list/img/male/6.1.jpg', '../list/img/male/6.2.jpg');
+INSERT INTO `male` VALUES (7, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 897, '../list/img/male/7.jpg', '../list/img/male/7.1.jpg', '../list/img/male/7.2.jpg');
+INSERT INTO `male` VALUES (8, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 1222, '../list/img/male/8.jpg', '../list/img/male/8.1.jpg', '../list/img/male/8.2.jpg');
+INSERT INTO `male` VALUES (9, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 1131, '../list/img/male/9.jpg', '../list/img/male/9.1.jpg', '../list/img/male/9.2.jpg');
+INSERT INTO `male` VALUES (10, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 1222, '../list/img/male/10.jpg', '../list/img/male/10.1.jpg', '../list/img/male/10.2.jpg');
+INSERT INTO `male` VALUES (11, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 447, '../list/img/male/11.jpg', '../list/img/male/11.1.jpg', '../list/img/male/11.2.jpg');
+INSERT INTO `male` VALUES (12, '骆驼牌 2017新品 多袋可脱卸帽 长袖夹克深蓝', 878, '../list/img/male/12.jpg', '../list/img/male/12.1.jpg', '../list/img/male/12.2.jpg');
